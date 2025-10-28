@@ -1,0 +1,129 @@
+.serendipity {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.serendipity-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.serendipity-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(10, 30, 43, 0.3),
+    rgba(10, 30, 43, 0.6)
+  );
+  z-index: 2;
+}
+
+.serendipity-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: var(--space-lg);
+}
+
+.quote-container {
+  max-width: 800px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--sky-light);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-md);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.author {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--sand-beige);
+  letter-spacing: 0.05em;
+}
+
+.location-info {
+  margin-top: var(--space-lg);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(10, 30, 43, 0.8);
+  border: 1px solid var(--aurora-glow);
+  border-radius: 2px;
+  backdrop-filter: blur(10px);
+}
+
+.location-info p {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--golden-hour);
+  letter-spacing: 0.03em;
+}
+
+.discover-more {
+  position: fixed;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  background: transparent;
+  border: 1px solid var(--aurora-glow);
+  color: var(--sky-light);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding: var(--space-sm) var(--space-lg);
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 30, 43, 0.6);
+}
+
+.discover-more:hover {
+  border-color: var(--mineral-teal);
+  background: rgba(90, 138, 143, 0.2);
+  box-shadow: 0 0 20px var(--aurora-glow);
+  transform: translateX(-50%) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .quote {
+    font-size: 1.8rem;
+  }
+
+  .author {
+    font-size: 1rem;
+  }
+
+  .discover-more {
+    bottom: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1rem;
+  }
+}
