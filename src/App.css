@@ -45,12 +45,14 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--deep-ocean);
 }
 
 main {
   flex: 1;
   position: relative;
   z-index: 1;
+  background: transparent;
 }
 
 /* Typography */

@@ -1,479 +1,407 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import './Home.css'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
-  const [isFirstVisit, setIsFirstVisit] = useState(true)
-  // Removed unused state variables currentTime and userLocation
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [scrollY, setScrollY] = useState(0);
 
-  // Simulate real-time updates
+  // Track mouse movement for parallax effect
   useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = localStorage.getItem('hasVisited')
-    if (hasVisited) {
-      setIsFirstVisit(false)
+    const handleMouseMove = (e: React.MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove as any);
+    window.addEventListener('scroll', handleScroll);
+    
+    // Update time every minute
+    const timeInterval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove as any);
+      window.removeEventListener('scroll', handleScroll);
+      clearInterval(timeInterval);
+    };
+  }, []);
+
+  // Interactive 3D cards data
+  const interactiveCards = [
+    {
+      id: 1,
+      title: "Holographic Landscapes",
+      description: "Experience destinations through augmented reality overlays with real-time environmental data",
+      icon: "🔷",
+      color: "linear-gradient(135deg, #00dbde 0%, #fc00ff 100%)",
+      link: "/beautiful-places"
+    },
+    {
+      id: 2,
+      title: "Quantum Creatures",
+      description: "Discover animals through quantum visualization showing behavioral patterns and genetic structures",
+      icon: "🔶",
+      color: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
+      link: "/creatures"
+    },
+    {
+      id: 3,
+      title: "Neo-Architecture",
+      description: "Explore human marvels through neural network-generated designs of future possibilities",
+      icon: "🔸",
+      color: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+      link: "/human-marvels"
+    },
+    {
+      id: 4,
+      title: "Temporal Science",
+      description: "Witness scientific breakthroughs through time-lapse simulations and predictive modeling",
+      icon: "🔹",
+      color: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
+      link: "/scientific-wonders"
+    }
+  ];
+
+  // Dynamic time-based experiences
+  const getTimeBasedExperience = () => {
+    const hour = currentTime.getHours();
+    if (hour >= 5 && hour < 12) {
+      return { 
+        title: "Dawn Discoveries", 
+        subtitle: "Experience the world awakening with golden hour photography and morning wildlife activity",
+        gradient: "linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)"
+      };
+    } else if (hour >= 12 && hour < 18) {
+      return { 
+        title: "Solar Expeditions", 
+        subtitle: "Explore destinations at their brightest with UV-reactive imagery and heat signature mapping",
+        gradient: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)"
+      };
     } else {
-      localStorage.setItem('hasVisited', 'true')
+      return { 
+        title: "Nocturnal Adventures", 
+        subtitle: "Discover the world after dark with luminescent photography and night vision simulations",
+        gradient: "linear-gradient(135deg, #434343 0%, #000000 100%)"
+      };
     }
-  }, [])
+  };
 
-  // Daily Wonder Data
-  const dailyWonder = {
-    title: "Aurora Borealis",
-    location: "Norwegian Lapland",
-    description: "Nature's most spectacular light show dances across the Arctic sky in brilliant greens, purples, and pinks.",
-    image: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1920&q=80",
-    facts: [
-      "Caused by solar particles colliding with Earth's atmosphere",
-      "Visible between September and April in the Northern Hemisphere",
-      "Can extend up to 620 miles above Earth's surface"
-    ],
-    sound: "aurora-ambient.mp3"
-  }
+  const timeExperience = getTimeBasedExperience();
 
-  // Quick Journeys
-  const quickJourneys = [
-    {
-      id: 1,
-      mood: "Serene & Peaceful",
-      description: "Calming landscapes, gentle creatures, tranquil art",
-      cta: "Find Your Moment of Peace",
-      icon: "🌅",
-      color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+  // Stats with live simulation
+  const liveStats = [
+    { 
+      number: Math.floor(Math.random() * 1000) + 15000, 
+      label: "Active Explorers", 
+      change: "+24 in last minute" 
     },
-    {
-      id: 2,
-      mood: "Awe & Wonder",
-      description: "Epic scale, dramatic phenomena, architectural marvels",
-      cta: "Experience Heart-Stopping Beauty",
-      icon: "⚡",
-      color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+    { 
+      number: Math.floor(Math.random() * 500) + 100000, 
+      label: "Holograms Generated", 
+      change: "+12 in last minute" 
     },
-    {
-      id: 3,
-      mood: "Curious & Unique",
-      description: "Strange creatures, hidden places, unusual art",
-      cta: "Discover Earth's Best Kept Secrets",
-      icon: "🔍",
-      color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+    { 
+      number: Math.floor(Math.random() * 50) + 2000, 
+      label: "AR Sessions", 
+      change: "+3 in last minute" 
     },
-    {
-      id: 4,
-      mood: "Personal & Intimate",
-      description: "Daily wonders, local beauty, human stories",
-      cta: "Find Beauty in Your World",
-      icon: "❤️",
-      color: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+    { 
+      number: Math.floor(Math.random() * 10) + 75, 
+      label: "Quantum Visualizations", 
+      change: "+1 in last minute" 
     }
-  ]
+  ];
 
-  // Featured Sections
-  const featuredSections = [
+  // Expanded universe data
+  const expandedUniverse = [
     {
-      id: 1,
-      title: 'Beautiful Places',
-      description: 'Discover Earth\'s most breathtaking landscapes, from towering mountains to hidden valleys.',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
-      link: '/beautiful-places'
+      title: "Multiverse Explorer",
+      description: "Journey through parallel dimensions where Earth evolved differently",
+      image: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      link: "/multiverse"
     },
     {
-      id: 2,
-      title: 'Wonderful Creatures',
-      description: 'Explore the incredible diversity of life on Earth, from majestic beasts to tiny marvels.',
-      image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=1920&q=80',
-      link: '/creatures'
+      title: "Temporal Archive",
+      description: "Experience historical events as they happened through time-stream technology",
+      image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
+      link: "/temporal-archive"
     },
     {
-      id: 3,
-      title: 'Human Marvels',
-      description: 'Celebrate the pinnacle of human creativity and achievement across cultures and time.',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
-      link: '/human-marvels'
+      title: "Cosmic Connections",
+      description: "Explore the relationship between Earth and distant celestial bodies",
+      image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      link: "/cosmic"
     },
     {
-      id: 4,
-      title: 'Natural Phenomena',
-      description: 'Witness the extraordinary forces that shape our world in spectacular ways.',
-      image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1920&q=80',
-      link: '/blog'
+      title: "Bio-Digital Fusion",
+      description: "See how living organisms interact with digital environments",
+      image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      link: "/bio-digital"
     }
-  ]
+  ];
 
-  // Live Planet Data
-  const livePlanetData = {
-    explorers: Math.floor(Math.random() * 1000) + 2000,
-    photos: Math.floor(Math.random() * 200) + 100,
-    events: Math.floor(Math.random() * 10) + 5,
-    newWonders: Math.floor(Math.random() * 5) + 1
-  }
-
-  // Time-based suggestions
-  const timeSuggestions = [
-    { time: "Sunrise", location: "Bali", active: true },
-    { time: "Noon", location: "Patagonia", active: false },
-    { time: "Sunset", location: "Sahara", active: false },
-    { time: "Midnight", location: "Tokyo", active: false }
-  ]
+  // Immersive experiences
+  const immersiveExperiences = [
+    {
+      title: "Neural Interface Tours",
+      description: "Experience destinations through direct neural stimulation for ultimate immersion",
+      duration: "30 min",
+      intensity: "High"
+    },
+    {
+      title: "Quantum Entanglement Journeys",
+      description: "Travel to multiple locations simultaneously through quantum superposition",
+      duration: "45 min",
+      intensity: "Extreme"
+    },
+    {
+      title: "Holographic Memory Implants",
+      description: "Implant authentic memories of visiting any location in history",
+      duration: "60 min",
+      intensity: "Medium"
+    }
+  ];
 
   return (
-    <div className="home">
-      {/* Hero Section with Dynamic Background */}
-      <motion.section 
-        className="hero-section"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        aria-labelledby="hero-title"
-      >
-        <div className="parallax-layer" style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80")',
-          transform: 'scale(1.1)'
-        }} />
-        <div className="parallax-layer" style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1920&q=80")',
-          opacity: 0.7,
-          animation: 'float 20s ease-in-out infinite'
-        }} />
-        <div className="gradient-overlay" />
+    <div className="home-container">
+      {/* Interactive Hero Section */}
+      <section className="hero-section">
+        <div className="hero-background"></div>
+        <div className="hero-overlay"></div>
+        
+        {/* Floating 3D Elements */}
+        <div className="floating-elements">
+          <div className="element element-1" style={{
+            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
+          }}></div>
+          <div className="element element-2" style={{
+            transform: `translate(${mousePosition.x * -0.01}px, ${mousePosition.y * 0.01}px)`
+          }}></div>
+          <div className="element element-3" style={{
+            transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * -0.015}px)`
+          }}></div>
+        </div>
         
         <div className="hero-content">
-          <motion.h1
-            id="hero-title"
-            className="title"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            {isFirstVisit ? "Welcome to Earth's Greatest Treasures" : "Welcome Back, Explorer"}
-          </motion.h1>
-          <motion.p
-            className="subtitle"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-          >
-            {isFirstVisit ? "65 Million Years of Beauty" : `${Math.floor(Math.random() * 20) + 5} New Wonders Await Discovery`}
-          </motion.p>
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 1.1 }}
-          >
-            <Link to="/beautiful-places" className="explore-button" aria-label="Begin exploring Earth's wonders">
-              {isFirstVisit ? "Begin Your Journey" : "Continue Exploring"}
+          <div className="hero-badge">FUTURE OF EXPLORATION</div>
+          <h1 className="hero-title">
+            <span className="glitch-text" data-text="WanderWorld">WanderWorld</span>
+          </h1>
+          <div className="time-experience" style={{ background: timeExperience.gradient }}>
+            <h3>{timeExperience.title}</h3>
+            <p>{timeExperience.subtitle}</p>
+          </div>
+          <p className="hero-subtitle">
+            The next generation of exploration through holographic reality, quantum visualization, 
+            and artificial intelligence powered discovery engines.
+          </p>
+          <div className="button-container">
+            <Link to="/beautiful-places">
+              <button className="cta-button neon-glow">Enter the Matrix</button>
             </Link>
-          </motion.div>
-        </div>
-
-        <div className="scroll-indicator" aria-hidden="true">
-          <span className="scroll-text">Explore</span>
-          <div className="scroll-line"></div>
-        </div>
-      </motion.section>
-
-      {/* Daily Wonder Feature */}
-      <section className="daily-wonder-section" aria-labelledby="daily-wonder-heading">
-        <div className="content-section">
-          <motion.div
-            className="daily-wonder-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 id="daily-wonder-heading">Wonder of the Day</h2>
-            <p>Experience the extraordinary beauty that awaits you today</p>
-          </motion.div>
-
-          <div className="daily-wonder-content">
-            <motion.div
-              className="daily-wonder-media"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div 
-                className="daily-wonder-image"
-                style={{ backgroundImage: `url('${dailyWonder.image}')` }}
-                role="img"
-                aria-label={`Image of ${dailyWonder.title} in ${dailyWonder.location}`}
-              >
-                <div className="daily-wonder-overlay">
-                  <span className="play-button" role="button" tabIndex={0} aria-label="Play ambient sound">▶</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="daily-wonder-info"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h3>{dailyWonder.title}</h3>
-              <p className="location">{dailyWonder.location}</p>
-              <p className="description">{dailyWonder.description}</p>
-              
-              <div className="wonder-facts">
-                <h4>Wonder Facts</h4>
-                <ul>
-                  {dailyWonder.facts.map((fact, index) => (
-                    <li key={index}>{fact}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="daily-wonder-actions">
-                <button className="action-button" aria-label={`Explore deeper information about ${dailyWonder.title}`}>Explore Deeper</button>
-                <button className="action-button" aria-label={`Share information about ${dailyWonder.title}`}>Share Wonder</button>
-                <button className="action-button" aria-label={`Download wallpaper of ${dailyWonder.title}`}>Set Wallpaper</button>
-              </div>
-            </motion.div>
+            <button className="secondary-button">Hologram Demo</button>
           </div>
         </div>
+        
+        {/* Interactive Grid Background */}
+        <div className="grid-background"></div>
       </section>
 
-      {/* Quick Journeys Gateway */}
-      <section className="quick-journeys-section" aria-labelledby="quick-journeys-heading">
-        <div className="content-section">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 id="quick-journeys-heading">Quick Journeys</h2>
-            <p>Discover beauty based on your mood and interests</p>
-          </motion.div>
-
-          <div className="journeys-grid">
-            {quickJourneys.map((journey, index) => (
-              <motion.div
-                key={journey.id}
-                className="journey-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                style={{ background: journey.color }}
-                role="button"
-                tabIndex={0}
-                aria-label={`Explore ${journey.mood} journeys`}
-              >
-                <div className="journey-icon" aria-hidden="true">{journey.icon}</div>
-                <h3>{journey.mood}</h3>
-                <p>{journey.description}</p>
-                <button className="journey-cta">{journey.cta}</button>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Time-Based Suggestions */}
-          <motion.div
-            className="time-suggestions"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3>Right Now on Earth</h3>
-            <div className="time-grid">
-              {timeSuggestions.map((suggestion, index) => (
-                <div 
-                  key={index} 
-                  className={`time-item ${suggestion.active ? 'active' : ''}`}
-                  aria-label={`${suggestion.time} in ${suggestion.location}`}
-                >
-                  <span className="time">{suggestion.time}</span>
-                  <span className="location">{suggestion.location}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+      {/* Interactive Cards Section */}
+      <section className="interactive-section">
+        <div className="section-header">
+          <div className="section-badge">QUANTUM INTERACTION</div>
+          <h2 className="section-title">Touch the Future of Exploration</h2>
+          <p className="section-subtitle">
+            Engage with our revolutionary interactive discovery system that adapts to your curiosity in real-time.
+          </p>
         </div>
-      </section>
-
-      {/* Live Planet Dashboard */}
-      <section className="live-planet-section" aria-labelledby="live-planet-heading">
-        <div className="content-section">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 id="live-planet-heading">Live Planet Dashboard</h2>
-            <p>Real-time activity across our beautiful world</p>
-          </motion.div>
-
-          <div className="dashboard-stats">
-            <motion.div
-              className="stat-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="stat-icon" aria-hidden="true">🌍</div>
-              <div className="stat-value">{livePlanetData.explorers.toLocaleString()}</div>
-              <div className="stat-label">People Exploring Wonders</div>
-            </motion.div>
-
-            <motion.div
-              className="stat-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
-              <div className="stat-icon" aria-hidden="true">📸</div>
-              <div className="stat-value">{livePlanetData.photos}</div>
-              <div className="stat-label">Photos Uploaded This Hour</div>
-            </motion.div>
-
-            <motion.div
-              className="stat-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="stat-icon" aria-hidden="true">🎥</div>
-              <div className="stat-value">{livePlanetData.events}</div>
-              <div className="stat-label">Live Events Happening</div>
-            </motion.div>
-
-            <motion.div
-              className="stat-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <div className="stat-icon" aria-hidden="true">🆕</div>
-              <div className="stat-value">{livePlanetData.newWonders}</div>
-              <div className="stat-label">Wonders Added Today</div>
-            </motion.div>
-          </div>
-
-          {/* Seasonal Spotlight */}
-          <motion.div
-            className="seasonal-spotlight"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3>Seasonal Spotlight</h3>
-            <div className="spotlight-content">
-              <div 
-                className="spotlight-image" 
-                style={{ 
-                  backgroundImage: 'url("https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&q=80")' 
-                }}
-                role="img"
-                aria-label="Cherry blossom season in Japan"
-              ></div>
-              <div className="spotlight-info">
-                <h4>Cherry Blossom Season</h4>
-                <p>Experience the ephemeral beauty of sakura blooms across Japan, with peak viewing times in Tokyo, Kyoto, and Osaka.</p>
-                <button className="spotlight-button">Plan Your Visit</button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Featured Sections */}
-      <section className="featured-sections" aria-labelledby="featured-sections-heading">
-        <div className="content-section">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 id="featured-sections-heading">Discover Our Collections</h2>
-            <p>Explore the beauty of our planet through different lenses</p>
-          </motion.div>
-          <div className="sections-grid">
-            {featuredSections.map((section, index) => (
-              <motion.div
-                key={section.id}
-                className="section-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-              >
-                <Link to={section.link} className="section-link" aria-label={`Explore ${section.title}`}>
-                  <div 
-                    className="section-image"
-                    style={{ backgroundImage: `url('${section.image}')` }}
-                    role="img"
-                    aria-label={`Image representing ${section.title}`}
-                  >
-                    <div className="section-overlay">
-                      <h3>{section.title}</h3>
-                      <p>{section.description}</p>
-                      <span className="explore-link">Explore →</span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Personalization Section */}
-      <section className="personalization-section" aria-labelledby="personalization-heading">
-        <div className="content-section">
-          <motion.div
-            className="personalization-content"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="personalization-text">
-              <h2 id="personalization-heading">Your Beauty Journey</h2>
-              <p>Personalized recommendations based on your interests and location</p>
-              <div className="progress-info">
-                <p>You've explored 4% of Earth's wonders</p>
-                <div className="progress-bar" role="progressbar" aria-valuenow={4} aria-valuemin={0} aria-valuemax={100}>
-                  <div className="progress-fill" style={{ width: '4%' }}></div>
-                </div>
-              </div>
-              <div className="recommendations">
-                <h4>Because You Loved...</h4>
-                <div className="recommendation-item">
-                  <span>Mount Fuji →</span>
-                  <span>Recommended: Mount Kilimanjaro</span>
-                </div>
-              </div>
-            </div>
+        <div className="interactive-grid">
+          {interactiveCards.map((card) => (
             <div 
-              className="personalization-image" 
+              key={card.id}
+              className={`interactive-card ${activeCard === card.id ? 'active' : ''}`}
+              onMouseEnter={() => setActiveCard(card.id)}
+              onMouseLeave={() => setActiveCard(null)}
               style={{ 
-                backgroundImage: 'url("https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=1920&q=80")' 
+                background: card.color,
+                transform: activeCard === card.id 
+                  ? 'translateY(-20px) scale(1.05)' 
+                  : 'translateY(0) scale(1)'
               }}
-              role="img"
-              aria-label="Personalized recommendation image"
-            ></div>
-          </motion.div>
+            >
+              <div className="card-icon">{card.icon}</div>
+              <h3 className="card-title">{card.title}</h3>
+              <p className="card-description">{card.description}</p>
+              <Link to={card.link} className="card-link">Initiate Experience</Link>
+            </div>
+          ))}
         </div>
       </section>
-    </div>
-  )
-}
 
-export default Home
+      {/* Expanded Universe Section */}
+      <section className="universe-section">
+        <div className="section-header">
+          <div className="section-badge">EXPANDED UNIVERSE</div>
+          <h2 className="section-title">Beyond Earth's Boundaries</h2>
+          <p className="section-subtitle">
+            Explore realms beyond our physical world through our expanded universe experiences.
+          </p>
+        </div>
+        <div className="universe-grid">
+          {expandedUniverse.map((item, index) => (
+            <div 
+              key={index} 
+              className="universe-card"
+              style={{ 
+                transform: `translateY(${scrollY * (0.1 + index * 0.05)}px)` 
+              }}
+            >
+              <div 
+                className="universe-image"
+                style={{ backgroundImage: `url(${item.image})` }}
+              ></div>
+              <div className="universe-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <Link to={item.link} className="universe-link">Explore Dimension</Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Live Data Visualization */}
+      <section className="data-section">
+        <div className="section-header">
+          <div className="section-badge">LIVE QUANTUM FEED</div>
+          <h2 className="section-title">Real-Time Global Exploration</h2>
+          <p className="section-subtitle">
+            Witness the current state of global exploration through our live data visualization system.
+          </p>
+        </div>
+        <div className="live-data-grid">
+          {liveStats.map((stat, index) => (
+            <div key={index} className="data-card">
+              <div className="data-number">{stat.number.toLocaleString()}</div>
+              <div className="data-label">{stat.label}</div>
+              <div className="data-change">{stat.change}</div>
+              <div className="data-visualizer">
+                <div className="visualizer-bar" style={{ 
+                  height: `${Math.random() * 80 + 20}%`,
+                  animationDelay: `${index * 0.2}s`
+                }}></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Immersive Experiences */}
+      <section className="immersive-section">
+        <div className="section-header">
+          <div className="section-badge">IMMERSIVE EXPERIENCES</div>
+          <h2 className="section-title">Next-Level Exploration</h2>
+          <p className="section-subtitle">
+            Experience destinations like never before with our cutting-edge immersive technologies.
+          </p>
+        </div>
+        <div className="immersive-grid">
+          {immersiveExperiences.map((experience, index) => (
+            <div key={index} className="immersive-card">
+              <div className="immersive-header">
+                <h3>{experience.title}</h3>
+                <div className="immersive-meta">
+                  <span className="duration">{experience.duration}</span>
+                  <span className={`intensity ${experience.intensity.toLowerCase()}`}>{experience.intensity}</span>
+                </div>
+              </div>
+              <p className="immersive-description">{experience.description}</p>
+              <button className="immersive-button">Activate Experience</button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Holographic Showcase */}
+      <section className="showcase-section">
+        <div className="section-header">
+          <div className="section-badge">HOLOGRAPHIC SHOWCASE</div>
+          <h2 className="section-title">Today's Featured Dimensions</h2>
+          <p className="section-subtitle">
+            Experience our editors' choice of multidimensional content through holographic projection.
+          </p>
+        </div>
+        <div className="hologram-container">
+          <div className="hologram-display">
+            <div className="hologram-content">
+              <h3>Aurora Quantum Field</h3>
+              <p>Interactive simulation of northern lights with particle physics visualization</p>
+              <div className="hologram-controls">
+                <button className="hologram-btn">Rotate View</button>
+                <button className="hologram-btn">Particle Detail</button>
+                <button className="hologram-btn">Sound Field</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Neural Network Recommendation */}
+      <section className="ai-section">
+        <div className="section-header">
+          <div className="section-badge">AI RECOMMENDATION MATRIX</div>
+          <h2 className="section-title">Personalized Discovery Engine</h2>
+          <p className="section-subtitle">
+            Our neural network analyzes your exploration patterns to suggest your next adventure.
+          </p>
+        </div>
+        <div className="ai-recommendation">
+          <div className="ai-avatar">
+            <div className="ai-icon">🤖</div>
+          </div>
+          <div className="ai-message">
+            <p>Based on your recent exploration of volcanic formations, I recommend:</p>
+            <h3>Quantum Simulation: Supervolcano Calderas of Yellowstone</h3>
+            <p>This interactive experience combines geological data with predictive modeling to show potential future eruptions.</p>
+            <div className="ai-actions">
+              <button className="ai-btn primary">Experience Now</button>
+              <button className="ai-btn secondary">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Mega Section */}
+      <section className="mega-cta-section">
+        <div className="mega-cta-content">
+          <h2 className="mega-cta-title">Join the Quantum Exploration Revolution</h2>
+          <p className="mega-cta-subtitle">
+            Become part of the largest community of explorers pushing the boundaries of human experience.
+          </p>
+          <div className="mega-cta-buttons">
+            <button className="mega-cta-button primary">Create Quantum Account</button>
+            <button className="mega-cta-button secondary">View Enterprise Solutions</button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Preview */}
+      <footer className="footer-preview">
+        <p className="footer-text">
+          © 2025 WanderWorld Quantum Division. Pioneering the future of digital exploration. 
+          <span className="quantum-badge">QUANTUM CERTIFIED</span>
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default Home;
