@@ -1,12 +1,16 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://beauty-of-the-world.vercel.app/sitemap.xml
+# Specific directives for better crawling
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
 
-# Crawl-delay
-Crawl-delay: 1
+# Crawl-delay for polite crawling
+Crawl-delay: 10
 
-# Disallow admin/private areas (if any in future)
-# Disallow: /admin/
-# Disallow: /private/
+# Sitemaps
+Sitemap: https://beautyoftheworld.example.com/sitemap.xml
+
+# Host directive
+Host: beautyoftheworld.example.com

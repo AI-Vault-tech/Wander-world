@@ -1,106 +1,92 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [location])
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Tallest Places', path: '/tallest-places' },
-    { name: 'Deepest Places', path: '/deepest-places' },
-    { name: 'Most Beautiful', path: '/most-beautiful' },
-    { name: 'Natural Wonders', path: '/natural-wonders' },
-    { name: 'Futuristic Cities', path: '/futuristic-cities' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Waterfalls', path: '/waterfalls' },
-    { name: 'Deserts', path: '/deserts' },
-    { name: 'Forests', path: '/forests' },
-    { name: 'Islands', path: '/islands' },
-    { name: 'Caves', path: '/caves' },
-    { name: 'Glaciers', path: '/glaciers' },
+    { path: '/', label: 'Home' },
+    { path: '/beautiful-places', label: 'Beautiful Places' },
+    { path: '/creatures', label: 'Wonderful Creatures' },
+    { path: '/creature-profiles', label: 'Creature Profiles' },
+    { path: '/blog', label: 'Stories' },
+    { path: '/biodiversity-globe', label: 'Bio-Diversity Globe' },
+    { path: '/human-marvels', label: 'Human Marvels' }
   ]
 
   return (
-    <motion.header
-      className="header"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
-    >
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`} role="banner">
       <div className="header-container">
-        <Link to="/" className="logo">
-          <motion.h1
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            The Beauty of the World
-          </motion.h1>
+        <Link to="/" className="logo" aria-label="The Beauty of the World - Home">
+          The Beauty of the World
         </Link>
-
-        <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
-          <ul className="nav-list">
-            {navLinks.map((link, index) => (
-              <motion.li
-                key={link.path}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 + index * 0.05 }}
-              >
-                <Link
-                  to={link.path}
-                  className="nav-link"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
+        
+        <nav className="nav" role="navigation" aria-label="Main navigation">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.path} 
+              to={link.path} 
+              className={location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path)) ? 'active' : ''}
+              aria-current={location.pathname === link.path ? 'page' : undefined}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
-
-        <button
-          className={`menu-toggle ${menuOpen ? 'menu-toggle-open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+        
+        <button 
+          className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-      </div>
-
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
+        
+        {isMenuOpen && (
+          <div 
+            id="mobile-menu" 
             className="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            role="dialog"
+            aria-label="Mobile navigation menu"
+            aria-modal="true"
           >
-            <ul className="mobile-nav-list">
+            <div className="mobile-nav-list">
               {navLinks.map((link) => (
-                <motion.li
-                  key={link.path}
-                  whileHover={{ x: 10 }}
-                  transition={{ duration: 0.2 }}
+                <Link 
+                  key={link.path} 
+                  to={link.path} 
+                  className={`mobile-nav-link ${location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path)) ? 'active' : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-current={location.pathname === link.path ? 'page' : undefined}
                 >
-                  <Link
-                    to={link.path}
-                    className="mobile-nav-link"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.li>
+                  {link.label}
+                </Link>
               ))}
-            </ul>
-          </motion.div>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
-    </motion.header>
+      </div>
+    </header>
   )
 }
 

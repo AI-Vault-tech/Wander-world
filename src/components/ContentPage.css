@@ -215,6 +215,35 @@
   color: var(--aurora-glow);
 }
 
+/* Focus styles for accessibility */
+.content-card:focus-within {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.card-content a:focus,
+.card-content button:focus {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--neon-cyan);
+  color: var(--deep-ocean);
+  padding: 8px;
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 @media (max-width: 768px) {
   .content-page {
     padding: calc(70px + var(--space-sm)) var(--space-sm) var(--space-md);
