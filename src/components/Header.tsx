@@ -27,7 +27,8 @@ const Header = () => {
     { path: '/creature-profiles', label: 'Creature Profiles' },
     { path: '/blog', label: 'Stories' },
     { path: '/biodiversity-globe', label: 'Bio-Diversity Globe' },
-    { path: '/human-marvels', label: 'Human Marvels' }
+    { path: '/human-marvels', label: 'Human Marvels' },
+    { path: '/scientific-wonders', label: 'Scientific Wonders' }
   ]
 
   return (

@@ -134,6 +134,74 @@ const BeautifulPlaces = () => {
           image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=1920&q=80'
         }
       ]
+    },
+    {
+      id: 'urban-natural',
+      title: 'Urban & Natural Treasures',
+      description: 'The beauty of both human-designed and natural environments',
+      categories: [
+        {
+          name: 'Beautiful Cities',
+          path: '/beautiful-cities',
+          description: 'Metropolitan areas with stunning architecture and cultural significance',
+          image: 'https://images.unsplash.com/photo-1508050919630-b135583b29ab?w=1920&q=80'
+        },
+        {
+          name: 'Beautiful Parks',
+          path: '/beautiful-parks',
+          description: 'Urban and natural parks with exceptional beauty and design',
+          image: 'https://images.unsplash.com/photo-1598940880645-0bd7e9afb5a0?w=1920&q=80'
+        },
+        {
+          name: 'Paradise Islands',
+          path: '/islands',
+          description: 'Isolated islands with pristine beaches and unique ecosystems',
+          image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80'
+        },
+        {
+          name: 'Natural Wonders',
+          path: '/natural-wonders',
+          description: 'Extraordinary natural phenomena and geological formations',
+          image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80'
+        }
+      ]
+    },
+    {
+      id: 'unique-experiences',
+      title: 'Unique Experiences',
+      description: 'Special places that offer one-of-a-kind experiences',
+      categories: [
+        {
+          name: 'Futuristic Cities',
+          path: '/futuristic-cities',
+          description: 'Cities showcasing cutting-edge technology and innovation',
+          image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&q=80'
+        },
+        {
+          name: 'Enchanted Forests',
+          path: '/forests',
+          description: 'Majestic forests with unique ecosystems and biodiversity',
+          image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80'
+        },
+        {
+          name: 'Underground Wonders',
+          path: '/caves',
+          description: 'Spectacular cave systems and subterranean formations',
+          image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&q=80'
+        },
+        {
+          name: 'Frozen Giants',
+          path: '/glaciers',
+          description: 'Massive ice formations and glacial landscapes',
+          image: 'https://images.unsplash.com/photo-1504829857797-ddff29c27927?w=1920&q=80'
+        },
+        {
+          name: 'Serendipitous Wonders',
+          path: '/serendipity',
+          description: 'Unexpected and enchanting places that surprise and delight',
+          image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80'
+        }
+      ]
     }
   ]
 

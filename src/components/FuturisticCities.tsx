@@ -1,150 +1,149 @@
 import { motion } from 'framer-motion'
 import './FuturisticCities.css'
 
-const cities = [
-  {
-    name: 'Dubai',
-    location: 'United Arab Emirates',
-    description: 'A desert mirage transformed into reality. Where impossibility becomes architecture, featuring the world\'s tallest building, artificial islands, and flying taxis.',
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=80',
-    facts: ['Burj Khalifa: 828m tall', 'Palm Islands visible from space', 'World\'s largest shopping mall'],
-    futuristic: ['Flying taxi network', 'AI-powered infrastructure', '3D-printed buildings']
-  },
-  {
-    name: 'Singapore',
-    location: 'Southeast Asia',
-    description: 'The garden city of the future. Where nature and technology merge seamlessly in vertical forests, smart gardens, and sustainable urban planning.',
-    image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1920&q=80',
-    facts: ['Gardens by the Bay: 250 acres', 'Supertrees harvest solar energy', '80% green building certification'],
-    futuristic: ['Autonomous vehicles', 'Smart nation initiative', 'Vertical farming towers']
-  },
-  {
-    name: 'Tokyo',
-    location: 'Japan',
-    description: 'Where tradition meets tomorrow. A neon-lit metropolis of 14 million souls, pushing the boundaries of technology, robotics, and urban efficiency.',
-    image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1920&q=80',
-    facts: ['World\'s busiest intersection', 'Most Michelin stars globally', '13 subway lines'],
-    futuristic: ['Robot hotels & restaurants', 'Maglev trains at 600 km/h', 'Holographic assistants']
-  },
-  {
-    name: 'Seoul',
-    location: 'South Korea',
-    description: 'The world\'s most connected city. A 5G wonderland where ancient palaces glow alongside LED skyscrapers and digital innovation never sleeps.',
-    image: 'https://images.unsplash.com/photo-1583950268462-b7e7ef5c0ada?w=1920&q=80',
-    facts: ['Fastest internet: 1Gbps average', 'Dongdaemun Design Plaza', '10 million population'],
-    futuristic: ['Citywide 5G coverage', 'Smart city sensors', 'Digital twin simulation']
-  },
-  {
-    name: 'Shanghai',
-    location: 'China',
-    description: 'The city that rose from rice fields to rival Manhattan in 30 years. A vertical forest of skyscrapers housing 26 million dreamers.',
-    image: 'https://images.unsplash.com/photo-1545893835-abaa50cbe628?w=1920&q=80',
-    facts: ['Shanghai Tower: 632m', 'World\'s fastest elevator', 'Maglev train to airport'],
-    futuristic: ['AI traffic management', 'Facial recognition everywhere', 'Smart waste systems']
-  },
-  {
-    name: 'Neom',
-    location: 'Saudi Arabia',
-    description: 'The city that doesn\'t exist yet. A $500 billion vision of tomorrow: The Line - a 170km linear city powered 100% by renewable energy.',
-    image: 'https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=1920&q=80',
-    facts: ['170km linear city', 'Zero cars, zero streets', '$500 billion investment'],
-    futuristic: ['100% renewable energy', 'Flying taxis only', 'AI-run governance']
-  }
-]
-
 const FuturisticCities = () => {
+  const cities = [
+    {
+      id: 1,
+      name: 'Neom City',
+      location: 'Saudi Arabia',
+      description: 'A planned cross-border city envisioned as a hub for innovation, powered entirely by renewable energy with flying taxis and robot butlers.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      population: 'Projected 9 million',
+      fact: 'Includes a 170km-long mirror-lined structure called "The Line"'
+    },
+    {
+      id: 2,
+      name: 'Singapore',
+      location: 'Singapore',
+      description: 'A global leader in smart city technology with extensive green architecture, autonomous vehicles, and integrated digital services.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      population: '5.8 million',
+      fact: 'Named world\'s most technology-ready city by IMD'
+    },
+    {
+      id: 3,
+      name: 'Tokyo',
+      location: 'Japan',
+      description: 'A metropolis blending cutting-edge technology with traditional culture, featuring robot restaurants, smart toilets, and earthquake-resistant buildings.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      population: '37 million',
+      fact: 'Home to the world\'s busiest pedestrian crossing at Shibuya'
+    },
+    {
+      id: 4,
+      name: 'Dubai',
+      location: 'UAE',
+      description: 'A city of superlatives with the world\'s tallest building, largest mall, and ambitious projects like underwater hotels and Mars exploration.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      population: '3.3 million',
+      fact: 'Has the world\'s largest 3D printed building'
+    },
+    {
+      id: 5,
+      name: 'Copenhagen',
+      location: 'Denmark',
+      description: 'A pioneer in sustainable urban living with carbon-neutral goals, extensive bike lanes, and innovative waste-to-energy systems.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      population: '1.3 million',
+      fact: 'Aims to become the world\'s first carbon-neutral capital by 2025'
+    },
+    {
+      id: 6,
+      name: 'Shenzhen',
+      location: 'China',
+      description: 'China\'s Silicon Valley and a testing ground for smart city technologies, from facial recognition systems to electric vehicle infrastructure.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      population: '17.5 million',
+      fact: 'Transformed from a fishing village to a megacity in just 40 years'
+    }
+  ]
+
   return (
     <div className="futuristic-cities">
-      <div className="cyber-grid"></div>
-      
       <motion.div
-        className="page-header futuristic-header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        className="hero-section"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
       >
-        <motion.div 
-          className="holographic-title"
-          animate={{ 
-            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-          }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-        >
-          <h1>Futuristic Cities</h1>
-        </motion.div>
-        <p className="page-description">
-          Where human ambition meets architectural impossibility. These are the cities
-          reshaping tomorrow, today—vertical forests, flying vehicles, and AI-powered metropolises.
-        </p>
+        <div className="hero-content">
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            Futuristic Cities
+          </motion.h1>
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="subtitle"
+          >
+            Explore the urban landscapes of tomorrow where technology, sustainability, and innovation converge to create the cities of the future.
+          </motion.p>
+        </div>
       </motion.div>
 
-      <div className="cities-grid">
+      <section className="cities-grid">
         {cities.map((city, index) => (
-          <motion.article
-            key={city.name}
+          <motion.div
+            key={city.id}
             className="city-card"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            whileHover={{ y: -10, scale: 1.02 }}
+            whileHover={{ y: -10 }}
           >
-            <div className="city-image-wrapper">
-              <div
+            <div className="city-image-container">
+              <div 
                 className="city-image"
-                style={{ backgroundImage: `url('${city.image}')` }}
+                style={{ backgroundImage: `linear-gradient(to bottom, transparent, rgba(10, 30, 43, 0.9)), url('${city.image}')` }}
               />
-              <div className="holographic-overlay"></div>
-              <div className="scan-line"></div>
             </div>
-            
             <div className="city-content">
-              <div className="city-header">
-                <h2>{city.name}</h2>
-                <span className="city-location">{city.location}</span>
-              </div>
-              
-              <p className="city-description">{city.description}</p>
-              
-              <div className="stats-container">
-                <div className="stat-section">
-                  <h3>Current Achievements</h3>
-                  <ul className="stat-list">
-                    {city.facts.map((fact, i) => (
-                      <motion.li 
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                      >
-                        {fact}
-                      </motion.li>
-                    ))}
-                  </ul>
+              <h3>{city.name}</h3>
+              <p className="location">{city.location}</p>
+              <p className="description">{city.description}</p>
+              <div className="city-details">
+                <div className="detail-item">
+                  <span className="detail-label">Population:</span>
+                  <span className="detail-value">{city.population}</span>
                 </div>
-                
-                <div className="stat-section futuristic-section">
-                  <h3>Future Technology</h3>
-                  <ul className="stat-list neon-list">
-                    {city.futuristic.map((tech, i) => (
-                      <motion.li 
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                      >
-                        {tech}
-                      </motion.li>
-                    ))}
-                  </ul>
+                <div className="detail-item">
+                  <span className="detail-label">Fact:</span>
+                  <span className="detail-value">{city.fact}</span>
                 </div>
               </div>
             </div>
-            
-            <div className="card-glow"></div>
-          </motion.article>
+          </motion.div>
         ))}
-      </div>
+      </section>
+
+      <section className="cities-info">
+        <motion.div
+          className="info-content"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1 }}
+        >
+          <h2>The Cities of Tomorrow</h2>
+          <p>
+            These futuristic cities represent humanity's vision of urban living reimagined. 
+            Through the integration of cutting-edge technology, sustainable practices, and 
+            innovative architecture, they're creating blueprints for how we might live in 
+            the decades to come.
+          </p>
+          <p>
+            From smart infrastructure that anticipates our needs to sustainable energy systems 
+            that reduce environmental impact, these cities showcase the incredible potential 
+            of human ingenuity to solve complex urban challenges while enhancing quality of life.
+          </p>
+        </motion.div>
+      </section>
     </div>
   )
 }

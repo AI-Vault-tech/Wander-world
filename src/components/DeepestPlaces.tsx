@@ -1,107 +1,148 @@
 import { motion } from 'framer-motion'
-import './ContentPage.css'
-
-const deepestPlaces = [
-  {
-    name: 'Mariana Trench',
-    location: 'Pacific Ocean',
-    depth: '10,994 meters (36,070 feet)',
-    description: 'The deepest point in Earth\'s oceans. A mysterious realm where pressure crushes and darkness reigns eternal. Only three people have ever descended to its deepest point, Challenger Deep.',
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80',
-    facts: [
-      'Deeper than Mount Everest is tall',
-      'Pressure is over 1000 times atmospheric pressure',
-      'Temperature hovers just above freezing'
-    ]
-  },
-  {
-    name: 'Krubera Cave',
-    location: 'Abkhazia, Georgia',
-    depth: '2,197 meters (7,208 feet)',
-    description: 'The deepest known cave on Earth. A vertical labyrinth descending into darkness, discovered to continue deeper with each expedition.',
-    image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=1920&q=80',
-    facts: [
-      'Also known as Voronya Cave',
-      'Took decades of expeditions to map',
-      'Contains underground rivers and waterfalls'
-    ]
-  },
-  {
-    name: 'Lake Baikal',
-    location: 'Siberia, Russia',
-    depth: '1,642 meters (5,387 feet)',
-    description: 'The world\'s deepest and oldest lake. Contains 20% of the world\'s fresh surface water and is home to thousands of unique species found nowhere else.',
-    image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=1920&q=80',
-    facts: [
-      'Over 25 million years old',
-      'Contains more water than all North American Great Lakes combined',
-      'Frozen surface thick enough to drive on in winter'
-    ]
-  },
-  {
-    name: 'Dead Sea',
-    location: 'Israel/Jordan',
-    depth: '430 meters (1,410 feet) below sea level',
-    description: 'The lowest point on Earth\'s land surface. So salty that humans float effortlessly, yet no fish can survive its hypersaline waters.',
-    image: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1920&q=80',
-    facts: [
-      'Lowest elevation on Earth\'s surface',
-      '34% salt content - 10x saltier than ocean',
-      'Shrinking at about 1 meter per year'
-    ]
-  }
-]
+import './DeepestPlaces.css'
 
 const DeepestPlaces = () => {
+  const places = [
+    {
+      id: 1,
+      name: 'Mariana Trench',
+      location: 'Pacific Ocean',
+      description: 'The deepest part of Earth\'s oceans at 36,200 feet deep, home to unique deep-sea creatures in crushing pressures.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      depth: '36,200 ft',
+      fact: 'If Mount Everest were placed at its lowest point, the peak would still be under water'
+    },
+    {
+      id: 2,
+      name: 'Grand Canyon',
+      location: 'Arizona, USA',
+      description: 'Carved by the Colorado River over millions of years, this immense canyon reaches depths of over a mile.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      depth: '6,000 ft',
+      fact: 'Nearly two billion years of Earth\'s geological history are exposed in its walls'
+    },
+    {
+      id: 3,
+      name: 'Dead Sea',
+      location: 'Jordan/Israel',
+      description: 'The Earth\'s lowest land surface at 1,412 feet below sea level, known for its hypersaline waters.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      depth: '1,412 ft below sea',
+      fact: 'Salt concentration is nearly 10 times higher than regular seawater'
+    },
+    {
+      id: 4,
+      name: 'Kruber Cave',
+      location: 'Georgia',
+      description: 'The deepest known cave in the world at 7,208 feet deep, formed in limestone rock in the Arabika Massif.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      depth: '7,208 ft',
+      fact: 'Takes nearly two days to reach the deepest point'
+    },
+    {
+      id: 5,
+      name: 'Lake Baikal',
+      location: 'Russia',
+      description: 'The world\'s deepest freshwater lake at 5,387 feet deep, containing 20% of the world\'s unfrozen fresh water.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      depth: '5,387 ft',
+      fact: 'Home to over 3,700 species, many found nowhere else on Earth'
+    },
+    {
+      id: 6,
+      name: 'Ryder Bay',
+      location: 'Antarctica',
+      description: 'One of Antarctica\'s deepest bays at over 2,000 feet deep, surrounded by spectacular ice formations.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      depth: '2,000+ ft',
+      fact: 'Home to diverse marine life despite extreme cold conditions'
+    }
+  ]
+
   return (
-    <div className="content-page">
+    <div className="deepest-places">
       <motion.div
-        className="page-header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        className="hero-section"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
       >
-        <h1>Deepest Places on Earth</h1>
-        <p className="page-description">
-          Descend into the abyss. From ocean trenches that plunge deeper than mountains rise,
-          to caves that spiral into the earth's heart, these are the planet's most profound depths.
-        </p>
+        <div className="hero-content">
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            Deepest Wonders
+          </motion.h1>
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="subtitle"
+          >
+            Descend into the depths and discover Earth's most profound natural and underwater marvels.
+          </motion.p>
+        </div>
       </motion.div>
 
-      <div className="content-grid">
-        {deepestPlaces.map((place, index) => (
-          <motion.article
-            key={place.name}
-            className="content-card"
-            initial={{ opacity: 0, y: 100 }}
+      <section className="places-grid">
+        {places.map((place, index) => (
+          <motion.div
+            key={place.id}
+            className="place-card"
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1, delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+            whileHover={{ y: -10 }}
           >
-            <div className="card-image-container">
-              <div
-                className="card-image"
-                style={{ backgroundImage: `url('${place.image}')` }}
+            <div className="place-image-container">
+              <div 
+                className="place-image"
+                style={{ backgroundImage: `linear-gradient(to bottom, transparent, rgba(10, 30, 43, 0.9)), url('${place.image}')` }}
               />
-              <div className="card-overlay">
-                <span className="card-height">{place.depth}</span>
+            </div>
+            <div className="place-content">
+              <h3>{place.name}</h3>
+              <p className="location">{place.location}</p>
+              <p className="description">{place.description}</p>
+              <div className="place-details">
+                <div className="detail-item">
+                  <span className="detail-label">Depth:</span>
+                  <span className="detail-value">{place.depth}</span>
+                </div>
+                <div className="detail-item">
+                  <span className="detail-label">Fact:</span>
+                  <span className="detail-value">{place.fact}</span>
+                </div>
               </div>
             </div>
-            
-            <div className="card-content">
-              <h2>{place.name}</h2>
-              <p className="card-location">{place.location}</p>
-              <p className="card-description">{place.description}</p>
-              
-              <ul className="card-facts">
-                {place.facts.map((fact, i) => (
-                  <li key={i}>{fact}</li>
-                ))}
-              </ul>
-            </div>
-          </motion.article>
+          </motion.div>
         ))}
-      </div>
+      </section>
+
+      <section className="places-info">
+        <motion.div
+          className="info-content"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1 }}
+        >
+          <h2>The Mystery of Depth</h2>
+          <p>
+            From the crushing depths of the ocean trenches to the hidden passages of underground caves, 
+            these profound wonders conceal secrets that have remained untouched for millennia. 
+            They represent the hidden realms of our planet, where extreme conditions create unique 
+            ecosystems and geological formations.
+          </p>
+          <p>
+            These deep places challenge our understanding of life and geology, 
+            revealing the incredible diversity and resilience of our world in its most extreme environments.
+          </p>
+        </motion.div>
+      </section>
     </div>
   )
 }

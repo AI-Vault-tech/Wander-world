@@ -1,131 +1,148 @@
 import { motion } from 'framer-motion'
-import './ContentPage.css'
-
-const tallestPlaces = [
-  {
-    name: 'Mount Everest',
-    location: 'Nepal/Tibet',
-    height: '8,849 meters (29,032 feet)',
-    description: 'The crown of the world, where earth touches the sky. The highest point on Earth, where climbers test their limits against nature\'s ultimate challenge.',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
-    facts: [
-      'First summited by Edmund Hillary and Tenzing Norgay in 1953',
-      'Known as Sagarmatha in Nepali and Chomolungma in Tibetan',
-      'Over 300 people have died attempting to climb it'
-    ]
-  },
-  {
-    name: 'K2',
-    location: 'Pakistan/China',
-    height: '8,611 meters (28,251 feet)',
-    description: 'The Savage Mountain. More dangerous than Everest, with one in four climbers who reach the summit dying on the descent.',
-    image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1920&q=80',
-    facts: [
-      'Second highest mountain in the world',
-      'Has never been climbed in winter until 2021',
-      'Considered the most difficult 8000m peak to climb'
-    ]
-  },
-  {
-    name: 'Kangchenjunga',
-    location: 'Nepal/India',
-    height: '8,586 meters (28,169 feet)',
-    description: 'The Five Treasures of Snow. Sacred to the local people, climbers traditionally stop short of the summit out of respect.',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80',
-    facts: [
-      'Third highest mountain in the world',
-      'Name means "Five Treasures of Snow"',
-      'Was thought to be the highest until 1849'
-    ]
-  },
-  {
-    name: 'Burj Khalifa',
-    location: 'Dubai, UAE',
-    height: '828 meters (2,717 feet)',
-    description: 'A testament to human ambition, piercing the desert sky. The tallest man-made structure ever built.',
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=80',
-    facts: [
-      'Tallest building in the world since 2010',
-      '163 floors above ground',
-      'Took 6 years to construct'
-    ]
-  },
-  {
-    name: 'Angel Falls',
-    location: 'Venezuela',
-    height: '979 meters (3,212 feet)',
-    description: 'The world\'s highest uninterrupted waterfall, plunging from the edge of a tabletop mountain into the jungle below.',
-    image: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=1920&q=80',
-    facts: [
-      'Highest waterfall in the world',
-      '15 times higher than Niagara Falls',
-      'Water turns to mist before reaching the ground'
-    ]
-  },
-  {
-    name: 'Mauna Kea',
-    location: 'Hawaii, USA',
-    height: '10,210 meters (33,500 feet) from base',
-    description: 'When measured from its base on the ocean floor, Mauna Kea is taller than Mount Everest. A sacred mountain home to world-class observatories.',
-    image: 'https://images.unsplash.com/photo-1542259009477-d625272157b7?w=1920&q=80',
-    facts: [
-      'Tallest mountain when measured from base to peak',
-      'Sacred site in Hawaiian culture',
-      'Home to 13 astronomical observatories'
-    ]
-  }
-]
+import './TallestPlaces.css'
 
 const TallestPlaces = () => {
+  const places = [
+    {
+      id: 1,
+      name: 'Mount Everest',
+      location: 'Nepal/China',
+      description: 'The world\'s highest peak at 29,032 feet, challenging climbers with its extreme altitude and unpredictable weather.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      height: '29,032 ft',
+      fact: 'Grows 4mm taller each year due to tectonic activity'
+    },
+    {
+      id: 2,
+      name: 'Burj Khalifa',
+      location: 'Dubai, UAE',
+      description: 'The world\'s tallest building at 2,717 feet, featuring cutting-edge engineering and luxury amenities.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      height: '2,717 ft',
+      fact: 'Has its own zip code and 57 elevators'
+    },
+    {
+      id: 3,
+      name: 'Angel Falls',
+      location: 'Venezuela',
+      description: 'The world\'s highest uninterrupted waterfall, plunging 3,212 feet from the Auyán-tepui mountain.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      height: '3,212 ft',
+      fact: 'Named after Jimmy Angel, the first aviator to fly over it'
+    },
+    {
+      id: 4,
+      name: 'Hyperion Tree',
+      location: 'California, USA',
+      description: 'The world\'s tallest known living tree, a coast redwood standing 379.7 feet tall in Redwood National Park.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      height: '379.7 ft',
+      fact: 'Estimated to be over 700 years old'
+    },
+    {
+      id: 5,
+      name: 'Mauna Kea',
+      location: 'Hawaii, USA',
+      description: 'The world\'s tallest mountain when measured from base to peak, rising 33,476 feet from the ocean floor.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      height: '33,476 ft',
+      fact: 'Taller than Mount Everest when measured from base'
+    },
+    {
+      id: 6,
+      name: 'Shanghai Tower',
+      location: 'Shanghai, China',
+      description: 'The world\'s second tallest building at 2,073 feet, featuring a twisting design that reduces wind loads.',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80',
+      height: '2,073 ft',
+      fact: 'Twists 120 degrees from base to top'
+    }
+  ]
+
   return (
-    <div className="content-page">
+    <div className="tallest-places">
       <motion.div
-        className="page-header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        className="hero-section"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
       >
-        <h1>Tallest Places on Earth</h1>
-        <p className="page-description">
-          Where earth reaches for the heavens. From the highest peaks that pierce the clouds
-          to monuments of human ambition, these are the places that touch the sky.
-        </p>
+        <div className="hero-content">
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            Tallest Wonders
+          </motion.h1>
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="subtitle"
+          >
+            Reach for the skies and discover the world's most towering natural and man-made marvels.
+          </motion.p>
+        </div>
       </motion.div>
 
-      <div className="content-grid">
-        {tallestPlaces.map((place, index) => (
-          <motion.article
-            key={place.name}
-            className="content-card"
-            initial={{ opacity: 0, y: 100 }}
+      <section className="places-grid">
+        {places.map((place, index) => (
+          <motion.div
+            key={place.id}
+            className="place-card"
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1, delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+            whileHover={{ y: -10 }}
           >
-            <div className="card-image-container">
-              <div
-                className="card-image"
-                style={{ backgroundImage: `url('${place.image}')` }}
+            <div className="place-image-container">
+              <div 
+                className="place-image"
+                style={{ backgroundImage: `linear-gradient(to bottom, transparent, rgba(10, 30, 43, 0.9)), url('${place.image}')` }}
               />
-              <div className="card-overlay">
-                <span className="card-height">{place.height}</span>
+            </div>
+            <div className="place-content">
+              <h3>{place.name}</h3>
+              <p className="location">{place.location}</p>
+              <p className="description">{place.description}</p>
+              <div className="place-details">
+                <div className="detail-item">
+                  <span className="detail-label">Height:</span>
+                  <span className="detail-value">{place.height}</span>
+                </div>
+                <div className="detail-item">
+                  <span className="detail-label">Fact:</span>
+                  <span className="detail-value">{place.fact}</span>
+                </div>
               </div>
             </div>
-            
-            <div className="card-content">
-              <h2>{place.name}</h2>
-              <p className="card-location">{place.location}</p>
-              <p className="card-description">{place.description}</p>
-              
-              <ul className="card-facts">
-                {place.facts.map((fact, i) => (
-                  <li key={i}>{fact}</li>
-                ))}
-              </ul>
-            </div>
-          </motion.article>
+          </motion.div>
         ))}
-      </div>
+      </section>
+
+      <section className="places-info">
+        <motion.div
+          className="info-content"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1 }}
+        >
+          <h2>The Majesty of Height</h2>
+          <p>
+            From the soaring peaks of the Himalayas to mankind's architectural achievements, 
+            these towering wonders inspire awe and push the boundaries of what's possible. 
+            They stand as testaments to the power of nature and human ingenuity.
+          </p>
+          <p>
+            Whether it's the natural majesty of a giant sequoia or the engineering marvel 
+            of a skyscraper, these vertical wonders draw our eyes upward and our spirits 
+            toward the heavens.
+          </p>
+        </motion.div>
+      </section>
     </div>
   )
 }

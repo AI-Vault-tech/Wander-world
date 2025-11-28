@@ -1,4 +1,4 @@
-.futuristic-cities {
+.forests {
   padding: 2rem 1rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -41,14 +41,14 @@
   font-weight: 300;
 }
 
-.cities-grid {
+.forests-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   padding: 1rem;
 }
 
-.city-card {
+.forest-card {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 15px;
   overflow: hidden;
@@ -59,19 +59,19 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.city-card:hover {
+.forest-card:hover {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-.city-image-container {
+.forest-image-container {
   height: 250px;
   position: relative;
   overflow: hidden;
 }
 
-.city-image {
+.forest-image {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -79,15 +79,15 @@
   transition: transform 0.5s ease;
 }
 
-.city-card:hover .city-image {
+.forest-card:hover .forest-image {
   transform: scale(1.05);
 }
 
-.city-content {
+.forest-content {
   padding: 1.5rem;
 }
 
-.city-content h3 {
+.forest-content h3 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: #64ffda;
@@ -107,7 +107,7 @@
   opacity: 0.9;
 }
 
-.city-details {
+.forest-details {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1rem;
 }
@@ -128,7 +128,7 @@
   opacity: 0.9;
 }
 
-.cities-info {
+.forests-info {
   margin-top: 4rem;
   padding: 3rem 2rem;
   background: rgba(255, 255, 255, 0.05);
@@ -162,12 +162,12 @@
     font-size: 1.2rem;
   }
   
-  .cities-grid {
+  .forests-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
-  .city-card {
+  .forest-card {
     margin-bottom: 1rem;
   }
   

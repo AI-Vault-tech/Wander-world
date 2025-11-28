@@ -25,6 +25,11 @@ const Footer = () => {
       { name: 'Glaciers', path: '/glaciers' },
       { name: 'Serendipity', path: '/serendipity' },
     ],
+    legal: [
+      { name: 'Privacy Policy', path: '/privacy-policy' },
+      { name: 'Terms of Service', path: '/terms-of-service' },
+      { name: 'About Us', path: '/about-us' },
+    ],
   }
 
   return (
@@ -100,6 +105,17 @@ const Footer = () => {
           <h3>Wonder</h3>
           <ul className="footer-links">
             {footerLinks.wonder.map((link) => (
+              <li key={link.path}>
+                <Link to={link.path}>{link.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="footer-section">
+          <h3>Legal</h3>
+          <ul className="footer-links">
+            {footerLinks.legal.map((link) => (
               <li key={link.path}>
                 <Link to={link.path}>{link.name}</Link>
               </li>
