@@ -7,6 +7,18 @@ const Home = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [scrollY, setScrollY] = useState(0);
+  const [particles, setParticles] = useState<Array<{id: number, x: number, y: number, size: number}>>([]);
+
+  // Initialize particles
+  useEffect(() => {
+    const initialParticles = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 5 + 1
+    }));
+    setParticles(initialParticles);
+  }, []);
 
   // Track mouse movement for parallax effect
   useEffect(() => {
@@ -26,10 +38,20 @@ const Home = () => {
       setCurrentTime(new Date());
     }, 60000);
     
+    // Animate particles
+    const particleInterval = setInterval(() => {
+      setParticles(prev => prev.map(particle => ({
+        ...particle,
+        x: (particle.x + 0.1) % 100,
+        y: (particle.y + 0.05) % 100
+      })));
+    }, 100);
+    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove as any);
       window.removeEventListener('scroll', handleScroll);
       clearInterval(timeInterval);
+      clearInterval(particleInterval);
     };
   }, []);
 
@@ -169,8 +191,72 @@ const Home = () => {
     }
   ];
 
+  // Premium showcase items
+  const premiumShowcase = [
+    {
+      title: "Aurora Quantum Field",
+      description: "Interactive simulation of northern lights with particle physics visualization",
+      image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      title: "Volcanic Core Simulation",
+      description: "Descend into Earth's mantle with real-time geothermal data visualization",
+      image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+    },
+    {
+      title: "Deep Space Observatory",
+      description: "Explore distant galaxies through radio telescope data interpretation",
+      image: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    }
+  ];
+
+  // VIP experiences
+  const vipExperiences = [
+    {
+      title: "私人定制探索之旅",
+      subtitle: "Personalized Exploration Journey",
+      description: "Tailored experiences based on your unique interests and preferences with dedicated AI concierge",
+      icon: "👑"
+    },
+    {
+      title: "专家陪同解说",
+      subtitle: "Expert Guided Tours",
+      description: "Exclusive access to world-renowned experts in various fields for personalized guided experiences",
+      icon: "🎓"
+    },
+    {
+      title: "前沿科技体验",
+      subtitle: "Cutting-Edge Technology",
+      description: "Early access to our latest quantum visualization and holographic technologies",
+      icon: "🔬"
+    },
+    {
+      title: "专属内容库",
+      subtitle: "Exclusive Content Library",
+      description: "Access to premium content not available to regular users, including 8K resolution experiences",
+      icon: "🔒"
+    }
+  ];
+
   return (
     <div className="home-container">
+      {/* Animated Particle Background */}
+      <div className="particle-background">
+        {particles.map(particle => (
+          <div
+            key={particle.id}
+            className="particle"
+            style={{
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              opacity: Math.random() * 0.7 + 0.3
+            }}
+          />
+        ))}
+      </div>
+
       {/* Interactive Hero Section */}
       <section className="hero-section">
         <div className="hero-background"></div>
@@ -190,7 +276,7 @@ const Home = () => {
         </div>
         
         <div className="hero-content">
-          <div className="hero-badge">FUTURE OF EXPLORATION</div>
+          <div className="hero-badge">ULTRA-PREMIUM QUANTUM EXPERIENCE</div>
           <h1 className="hero-title">
             <span className="glitch-text" data-text="WanderWorld">WanderWorld</span>
           </h1>
@@ -199,19 +285,43 @@ const Home = () => {
             <p>{timeExperience.subtitle}</p>
           </div>
           <p className="hero-subtitle">
-            The next generation of exploration through holographic reality, quantum visualization, 
-            and artificial intelligence powered discovery engines.
+            The pinnacle of exploration through holographic reality, quantum visualization, 
+            and artificial intelligence powered discovery engines with ultra-premium content.
           </p>
           <div className="button-container">
             <Link to="/beautiful-places">
-              <button className="cta-button neon-glow">Enter the Matrix</button>
+              <button className="cta-button neon-glow">Enter the Quantum Realm</button>
             </Link>
-            <button className="secondary-button">Hologram Demo</button>
+            <button className="secondary-button">Premium Demo</button>
           </div>
         </div>
         
         {/* Interactive Grid Background */}
         <div className="grid-background"></div>
+      </section>
+
+      {/* VIP Experiences Section */}
+      <section className="vip-section">
+        <div className="section-header">
+          <div className="section-badge">EXCLUSIVE VIP EXPERIENCES</div>
+          <h2 className="section-title">Premium Membership Benefits</h2>
+          <p className="section-subtitle">
+            Unlock the ultimate exploration experience with our exclusive VIP program.
+          </p>
+        </div>
+        <div className="vip-grid">
+          {vipExperiences.map((experience, index) => (
+            <div 
+              key={index} 
+              className="vip-card"
+            >
+              <div className="vip-icon">{experience.icon}</div>
+              <h3 className="vip-title">{experience.title}</h3>
+              <h4 className="vip-subtitle">{experience.subtitle}</h4>
+              <p className="vip-description">{experience.description}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Interactive Cards Section */}
@@ -272,6 +382,33 @@ const Home = () => {
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <Link to={item.link} className="universe-link">Explore Dimension</Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Premium Showcase Section */}
+      <section className="showcase-section premium-showcase">
+        <div className="section-header">
+          <div className="section-badge">PREMIUM SHOWCASE</div>
+          <h2 className="section-title">Elite Quantum Experiences</h2>
+          <p className="section-subtitle">
+            Curated selection of our most advanced and visually stunning experiences.
+          </p>
+        </div>
+        <div className="premium-grid">
+          {premiumShowcase.map((item, index) => (
+            <div key={index} className="premium-card">
+              <div 
+                className="premium-image"
+                style={{ backgroundImage: `url(${item.image})` }}
+              >
+                <div className="premium-overlay">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <button className="premium-button">Experience Now</button>
+                </div>
               </div>
             </div>
           ))}
