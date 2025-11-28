@@ -9,16 +9,23 @@ const Home = () => {
   const [scrollY, setScrollY] = useState(0);
   const [particles, setParticles] = useState<Array<{id: number, x: number, y: number, size: number}>>([]);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isVRMode, setIsVRMode] = useState(false);
+  const [quantumState, setQuantumState] = useState(0);
+  const [neuralActivity, setNeuralActivity] = useState<Array<number>>([]);
 
   // Initialize particles
   useEffect(() => {
-    const initialParticles = Array.from({ length: 50 }, (_, i) => ({
+    const initialParticles = Array.from({ length: 100 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 5 + 1
     }));
     setParticles(initialParticles);
+    
+    // Initialize neural activity
+    const initialNeuralActivity = Array.from({ length: 20 }, () => Math.random() * 100);
+    setNeuralActivity(initialNeuralActivity);
   }, []);
 
   // Track mouse movement for parallax effect
@@ -50,8 +57,21 @@ const Home = () => {
     
     // Auto-rotate testimonials
     const testimonialInterval = setInterval(() => {
-      setActiveTestimonial(prev => (prev + 1) % 3);
+      setActiveTestimonial(prev => (prev + 1) % 5);
     }, 5000);
+    
+    // Quantum state animation
+    const quantumInterval = setInterval(() => {
+      setQuantumState(prev => (prev + 1) % 360);
+    }, 50);
+    
+    // Neural activity simulation
+    const neuralInterval = setInterval(() => {
+      setNeuralActivity(prev => prev.map(val => {
+        const change = (Math.random() - 0.5) * 20;
+        return Math.max(0, Math.min(100, val + change));
+      }));
+    }, 300);
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove as any);
@@ -59,6 +79,8 @@ const Home = () => {
       clearInterval(timeInterval);
       clearInterval(particleInterval);
       clearInterval(testimonialInterval);
+      clearInterval(quantumInterval);
+      clearInterval(neuralInterval);
     };
   }, []);
 
@@ -95,6 +117,22 @@ const Home = () => {
       icon: "🔹",
       color: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
       link: "/scientific-wonders"
+    },
+    {
+      id: 5,
+      title: "Underwater Exploration",
+      description: "Dive into the ocean depths with our advanced marine visualization technology",
+      icon: "🌊",
+      color: "linear-gradient(135deg, #1e90ff 0%, #00bfff 100%)",
+      link: "/underwater"
+    },
+    {
+      id: 6,
+      title: "Space Odyssey",
+      description: "Journey through our solar system and beyond with realistic space simulations",
+      icon: "🚀",
+      color: "linear-gradient(135deg, #8a2be2 0%, #4b0082 100%)",
+      link: "/space"
     }
   ];
 
@@ -127,24 +165,34 @@ const Home = () => {
   // Stats with live simulation
   const liveStats = [
     { 
-      number: Math.floor(Math.random() * 1000) + 15000, 
+      number: Math.floor(Math.random() * 10000) + 50000, 
       label: "Active Explorers", 
-      change: "+24 in last minute" 
+      change: "+127 in last minute" 
     },
     { 
-      number: Math.floor(Math.random() * 500) + 100000, 
+      number: Math.floor(Math.random() * 10000) + 500000, 
       label: "Holograms Generated", 
-      change: "+12 in last minute" 
+      change: "+89 in last minute" 
     },
     { 
-      number: Math.floor(Math.random() * 50) + 2000, 
+      number: Math.floor(Math.random() * 1000) + 15000, 
       label: "AR Sessions", 
+      change: "+23 in last minute" 
+    },
+    { 
+      number: Math.floor(Math.random() * 100) + 2000, 
+      label: "Quantum Visualizations", 
+      change: "+7 in last minute" 
+    },
+    { 
+      number: Math.floor(Math.random() * 50) + 500, 
+      label: "VR Experiences", 
       change: "+3 in last minute" 
     },
     { 
-      number: Math.floor(Math.random() * 10) + 75, 
-      label: "Quantum Visualizations", 
-      change: "+1 in last minute" 
+      number: 195, 
+      label: "Countries Explored", 
+      change: "+2 newly added" 
     }
   ];
 
@@ -173,6 +221,18 @@ const Home = () => {
       description: "See how living organisms interact with digital environments",
       image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
       link: "/bio-digital"
+    },
+    {
+      title: "Underwater Realms",
+      description: "Dive into the mysterious depths of our planet's oceans",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      link: "/underwater-realms"
+    },
+    {
+      title: "Future Simulations",
+      description: "Experience scientifically-accurate predictions of Earth's future",
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      link: "/future-simulations"
     }
   ];
 
@@ -195,6 +255,18 @@ const Home = () => {
       description: "Implant authentic memories of visiting any location in history",
       duration: "60 min",
       intensity: "Medium"
+    },
+    {
+      title: "Time Dilation Expeditions",
+      description: "Experience hours of exploration in just minutes of real time",
+      duration: "90 min",
+      intensity: "Extreme"
+    },
+    {
+      title: "Multi-Sensory Symphonies",
+      description: "Engage all five senses with orchestrated environmental experiences",
+      duration: "40 min",
+      intensity: "High"
     }
   ];
 
@@ -214,6 +286,11 @@ const Home = () => {
       title: "Deep Space Observatory",
       description: "Explore distant galaxies through radio telescope data interpretation",
       image: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      title: "Oceanic Abyss Explorer",
+      description: "Journey to the deepest parts of Earth's oceans with submersible simulations",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
     }
   ];
 
@@ -242,6 +319,18 @@ const Home = () => {
       subtitle: "Exclusive Content Library",
       description: "Access to premium content not available to regular users, including 8K resolution experiences",
       icon: "🔒"
+    },
+    {
+      title: "虚拟现实探险",
+      subtitle: "Virtual Reality Adventures",
+      description: "Full immersive VR experiences with haptic feedback suits and spatial audio",
+      icon: "🥽"
+    },
+    {
+      title: "全球探索通行证",
+      subtitle: "World Explorer Pass",
+      description: "Unlimited access to all destinations and experiences across all our platforms",
+      icon: "🌐"
     }
   ];
 
@@ -264,6 +353,18 @@ const Home = () => {
       role: "Marine Biologist",
       quote: "The bio-digital fusion simulations helped me discover new species interactions I never would have noticed otherwise.",
       avatar: "E"
+    },
+    {
+      name: "Professor James Wright",
+      role: "Astrophysicist",
+      quote: "The cosmic connections module provides the most accurate space visualization I've ever experienced. It's like being there.",
+      avatar: "J"
+    },
+    {
+      name: "Sarah Kim",
+      role: "UNESCO World Heritage Expert",
+      quote: "As a cultural preservationist, I'm amazed by how accurately WanderWorld captures the essence of heritage sites worldwide.",
+      avatar: "S"
     }
   ];
 
@@ -288,6 +389,63 @@ const Home = () => {
       title: "AI Synthesis",
       description: "Artificial intelligence that creates entirely new experiences",
       icon: "🤖"
+    },
+    {
+      title: "Haptic Feedback",
+      description: "Full-body tactile sensations for complete immersion",
+      icon: "✋"
+    },
+    {
+      title: "Multi-Sensory Integration",
+      description: "Engage all five senses with orchestrated environmental experiences",
+      icon: "👃"
+    }
+  ];
+
+  // World Heritage Sites
+  const worldHeritageSites = [
+    {
+      name: "Machu Picchu",
+      country: "Peru",
+      category: "Cultural",
+      image: "https://images.unsplash.com/photo-1525862227096-74c7e08801d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      name: "Great Barrier Reef",
+      country: "Australia",
+      category: "Natural",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      name: "Pyramids of Giza",
+      country: "Egypt",
+      category: "Cultural",
+      image: "https://images.unsplash.com/photo-1525862227096-74c7e08801d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      name: "Northern Lights",
+      country: "Norway",
+      category: "Natural",
+      image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    }
+  ];
+
+  // Quantum dimensions
+  const quantumDimensions = [
+    {
+      title: "Dimension X-42",
+      description: "A realm where gravity flows in reverse and time moves in spirals",
+      stability: "92%"
+    },
+    {
+      title: "Nebula Prime",
+      description: "A gaseous dimension composed entirely of sentient stellar clouds",
+      stability: "78%"
+    },
+    {
+      title: "EchoVerse",
+      description: "A reality where every action creates infinite parallel outcomes",
+      stability: "85%"
     }
   ];
 
@@ -329,7 +487,7 @@ const Home = () => {
         </div>
         
         <div className="hero-content">
-          <div className="hero-badge">ULTRA-PREMIUM QUANTUM EXPERIENCE</div>
+          <div className="hero-badge">WORLD'S LARGEST EXPLORATION PLATFORM</div>
           <h1 className="hero-title">
             <span className="glitch-text" data-text="WanderWorld">WanderWorld</span>
           </h1>
@@ -338,19 +496,59 @@ const Home = () => {
             <p>{timeExperience.subtitle}</p>
           </div>
           <p className="hero-subtitle">
-            The pinnacle of exploration through holographic reality, quantum visualization, 
+            The world's largest, most beautiful, and most advanced exploration platform. 
+            Experience destinations through holographic reality, quantum visualization, 
             and artificial intelligence powered discovery engines with ultra-premium content.
           </p>
           <div className="button-container">
             <Link to="/beautiful-places">
               <button className="cta-button neon-glow">Enter the Quantum Realm</button>
             </Link>
-            <button className="secondary-button">Premium Demo</button>
+            <button 
+              className="secondary-button vr-toggle"
+              onClick={() => setIsVRMode(!isVRMode)}
+            >
+              {isVRMode ? "Exit VR Mode" : "Try VR Preview"}
+            </button>
           </div>
         </div>
         
         {/* Interactive Grid Background */}
         <div className="grid-background"></div>
+      </section>
+
+      {/* World Heritage Sites Preview */}
+      <section className="heritage-section">
+        <div className="section-header">
+          <div className="section-badge">UNESCO WORLD HERITAGE SITES</div>
+          <h2 className="section-title">Explore Our Planet's Treasures</h2>
+          <p className="section-subtitle">
+            Discover the world's most significant cultural and natural heritage sites with our comprehensive database.
+          </p>
+        </div>
+        <div className="heritage-grid">
+          {worldHeritageSites.map((site, index) => (
+            <div key={index} className="heritage-card">
+              <div 
+                className="heritage-image"
+                style={{ backgroundImage: `url(${site.image})` }}
+              >
+                <div className="heritage-overlay">
+                  <span className={`heritage-category ${site.category.toLowerCase()}`}>
+                    {site.category}
+                  </span>
+                </div>
+              </div>
+              <div className="heritage-content">
+                <h3>{site.name}</h3>
+                <p>{site.country}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="centered-button">
+          <button className="explore-more-button">Explore All 195 Countries</button>
+        </div>
       </section>
 
       {/* VIP Experiences Section */}
@@ -623,6 +821,79 @@ const Home = () => {
             <div className="ai-actions">
               <button className="ai-btn primary">Experience Now</button>
               <button className="ai-btn secondary">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quantum Dimensions Section */}
+      <section className="quantum-section">
+        <div className="section-header">
+          <div className="section-badge">QUANTUM DIMENSIONS</div>
+          <h2 className="section-title">Stable Parallel Realities</h2>
+          <p className="section-subtitle">
+            Access verified quantum dimensions with our breakthrough stabilization technology.
+          </p>
+        </div>
+        <div className="quantum-grid">
+          {quantumDimensions.map((dimension, index) => (
+            <div 
+              key={index} 
+              className="quantum-card"
+              style={{ 
+                transform: `rotateY(${quantumState + index * 120}deg)`,
+                background: `linear-gradient(${quantumState}deg, rgba(0, 217, 255, 0.2), rgba(170, 0, 255, 0.2))`
+              }}
+            >
+              <div className="quantum-header">
+                <h3>{dimension.title}</h3>
+                <div className="stability-meter">
+                  <div className="stability-bar" style={{ width: dimension.stability }}></div>
+                  <span className="stability-value">{dimension.stability}</span>
+                </div>
+              </div>
+              <p className="quantum-description">{dimension.description}</p>
+              <button className="quantum-button">Enter Dimension</button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Neural Activity Visualization */}
+      <section className="neural-section">
+        <div className="section-header">
+          <div className="section-badge">GLOBAL NEURAL NETWORK</div>
+          <h2 className="section-title">Real-Time Brain Activity Map</h2>
+          <p className="section-subtitle">
+            Visualize collective human consciousness during exploration experiences.
+          </p>
+        </div>
+        <div className="neural-visualization">
+          <div className="neural-grid">
+            {neuralActivity.map((activity, index) => (
+              <div 
+                key={index} 
+                className="neural-node"
+                style={{ 
+                  height: `${activity}%`,
+                  background: `linear-gradient(to top, #00d9ff, #aa00ff)`,
+                  opacity: activity / 100
+                }}
+              ></div>
+            ))}
+          </div>
+          <div className="neural-stats">
+            <div className="stat-item">
+              <div className="stat-value">2.4M</div>
+              <div className="stat-label">Active Neurons</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-value">98.7%</div>
+              <div className="stat-label">Network Efficiency</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-value">0.3s</div>
+              <div className="stat-label">Response Time</div>
             </div>
           </div>
         </div>

@@ -773,7 +773,220 @@
 }
 
 .card-link:hover::after {
-  transform: translateY(-50%) translateX(5px);
+}
+
+/* Quantum Dimensions Section */
+.quantum-section {
+  padding: 10rem 2rem;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 35%, rgba(0, 217, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 75% 65%, rgba(170, 0, 255, 0.1) 0%, transparent 40%);
+  z-index: 0;
+}
+
+.quantum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.quantum-card {
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 25px;
+  padding: 3rem;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.quantum-card:hover {
+  transform: translateY(-20px) scale(1.02);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+}
+
+.quantum-header {
+  margin-bottom: 2rem;
+}
+
+.quantum-header h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #00d9ff;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+
+.stability-meter {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.stability-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff3300, #ffcc00, #00cc66);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.stability-value {
+  position: absolute;
+  right: 0;
+  top: -25px;
+  color: #00d9ff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.quantum-description {
+  color: #cccccc;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.quantum-button {
+  background: linear-gradient(135deg, #00d9ff 0%, #aa00ff 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 5px 15px rgba(170, 0, 255, 0.3);
+}
+
+.quantum-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(170, 0, 255, 0.5);
+  letter-spacing: 2px;
+}
+
+/* Neural Activity Visualization */
+.neural-section {
+  padding: 10rem 2rem;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.neural-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(0, 255, 170, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(0, 217, 255, 0.1) 0%, transparent 40%);
+  z-index: 0;
+}
+
+.neural-visualization {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.neural-grid {
+  display: flex;
+  align-items: flex-end;
+  height: 300px;
+  gap: 10px;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+.neural-node {
+  flex: 1;
+  min-width: 10px;
+  border-radius: 5px 5px 0 0;
+  transition: height 0.3s ease;
+  box-shadow: 0 -5px 15px rgba(0, 217, 255, 0.5);
+}
+
+.neural-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #00d9ff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #aaaaaa;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Quantum Dimensions Section */
+.quantum-section {
+  padding: 10rem 2rem;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 35%, rgba(0, 217, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 75% 65%, rgba(170, 0, 255, 0.1) 0%, transparent 40%);
+  z-index: 0;
 }
 
 /* Expanded Universe Section */
