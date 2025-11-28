@@ -8,6 +8,7 @@ const Home = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [scrollY, setScrollY] = useState(0);
   const [particles, setParticles] = useState<Array<{id: number, x: number, y: number, size: number}>>([]);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   // Initialize particles
   useEffect(() => {
@@ -47,11 +48,17 @@ const Home = () => {
       })));
     }, 100);
     
+    // Auto-rotate testimonials
+    const testimonialInterval = setInterval(() => {
+      setActiveTestimonial(prev => (prev + 1) % 3);
+    }, 5000);
+    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove as any);
       window.removeEventListener('scroll', handleScroll);
       clearInterval(timeInterval);
       clearInterval(particleInterval);
+      clearInterval(testimonialInterval);
     };
   }, []);
 
@@ -238,6 +245,52 @@ const Home = () => {
     }
   ];
 
+  // Testimonials
+  const testimonials = [
+    {
+      name: "Alexandra Chen",
+      role: "Quantum Physicist",
+      quote: "WanderWorld has revolutionized how I visualize complex scientific concepts. The quantum visualization tools are unparalleled.",
+      avatar: "A"
+    },
+    {
+      name: "Marcus Johnson",
+      role: "National Geographic Photographer",
+      quote: "The holographic landscape experiences have transformed my creative process. I've never seen anything like it.",
+      avatar: "M"
+    },
+    {
+      name: "Dr. Elena Rodriguez",
+      role: "Marine Biologist",
+      quote: "The bio-digital fusion simulations helped me discover new species interactions I never would have noticed otherwise.",
+      avatar: "E"
+    }
+  ];
+
+  // Technology features
+  const techFeatures = [
+    {
+      title: "Neural Interface",
+      description: "Direct brain-computer integration for ultimate immersion",
+      icon: "🧠"
+    },
+    {
+      title: "Quantum Rendering",
+      description: "Real-time photorealistic rendering using quantum computing",
+      icon: "⚛️"
+    },
+    {
+      title: "Holographic Display",
+      description: "True 3D holograms without glasses or headsets",
+      icon: "プロジェクター"
+    },
+    {
+      title: "AI Synthesis",
+      description: "Artificial intelligence that creates entirely new experiences",
+      icon: "🤖"
+    }
+  ];
+
   return (
     <div className="home-container">
       {/* Animated Particle Background */}
@@ -319,6 +372,26 @@ const Home = () => {
               <h3 className="vip-title">{experience.title}</h3>
               <h4 className="vip-subtitle">{experience.subtitle}</h4>
               <p className="vip-description">{experience.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Technology Features Section */}
+      <section className="tech-section">
+        <div className="section-header">
+          <div className="section-badge">ADVANCED TECHNOLOGY</div>
+          <h2 className="section-title">Powered by the Future</h2>
+          <p className="section-subtitle">
+            Cutting-edge technologies that make impossible experiences possible.
+          </p>
+        </div>
+        <div className="tech-grid">
+          {techFeatures.map((feature, index) => (
+            <div key={index} className="tech-card">
+              <div className="tech-icon">{feature.icon}</div>
+              <h3 className="tech-title">{feature.title}</h3>
+              <p className="tech-description">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -412,6 +485,45 @@ const Home = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <div className="section-header">
+          <div className="section-badge">USER TESTIMONIALS</div>
+          <h2 className="section-title">What Our Explorers Say</h2>
+          <p className="section-subtitle">
+            Hear from pioneers who have experienced the future of exploration.
+          </p>
+        </div>
+        <div className="testimonials-container">
+          <div className="testimonial-slider">
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index} 
+                className={`testimonial-card ${index === activeTestimonial ? 'active' : ''}`}
+              >
+                <div className="testimonial-avatar">
+                  <div className="avatar-initial">{testimonial.avatar}</div>
+                </div>
+                <div className="testimonial-content">
+                  <p className="testimonial-quote">"{testimonial.quote}"</p>
+                  <h4 className="testimonial-name">{testimonial.name}</h4>
+                  <p className="testimonial-role">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="testimonial-indicators">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`indicator ${index === activeTestimonial ? 'active' : ''}`}
+                onClick={() => setActiveTestimonial(index)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
