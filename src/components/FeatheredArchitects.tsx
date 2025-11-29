@@ -1,4 +1,3 @@
-import React from 'react';
 import './FeatheredArchitects.css';
 
 const FeatheredArchitects = () => {

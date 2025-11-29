@@ -1,4 +1,3 @@
-import React from 'react';
 import './SeedSpecialists.css';
 
 const SeedSpecialists = () => {

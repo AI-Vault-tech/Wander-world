@@ -76,14 +76,6 @@ const FlightMasters = () => {
     <div className="flight-masters">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-background">
-          <img 
-            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80" 
-            alt="Flight Masters" 
-            className="hero-image"
-          />
-          <div className="hero-overlay"></div>
-        </div>
         <div className="hero-content">
           <h1>Flight Masters</h1>
           <p>Birds with extraordinary flying abilities and aerial acrobatics</p>

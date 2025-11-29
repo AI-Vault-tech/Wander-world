@@ -1,4 +1,3 @@
-import React from 'react';
 import './HighFlyers.css';
 
 const HighFlyers = () => {
