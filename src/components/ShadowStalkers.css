@@ -1,0 +1,292 @@
+.shadow-stalkers {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 80px;
+  background: linear-gradient(180deg, #0a1e2b 0%, #0d1520 100%);
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    linear-gradient(to bottom, rgba(10, 30, 43, 0.7), rgba(10, 30, 43, 0.9)),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  background: linear-gradient(
+    135deg,
+    #00ffff,
+    #8adac3,
+    #ff6ec7,
+    #ffd166
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 300;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.intro-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #00ffff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.intro-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #d1d1d1;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.birds-grid {
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.birds-grid .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+}
+
+.bird-card {
+  background: linear-gradient(145deg, rgba(20, 40, 60, 0.8), rgba(10, 25, 47, 0.9));
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(64, 224, 208, 0.2);
+  position: relative;
+}
+
+.bird-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(64, 224, 208, 0.4);
+}
+
+.bird-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #00ffff, #8adac3, #ff6ec7, #ffd166);
+  background-size: 300% 300%;
+  animation: gradient 4s ease infinite;
+}
+
+.bird-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.bird-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bird-card:hover .bird-image img {
+  transform: scale(1.1);
+}
+
+.bird-info {
+  padding: 1.5rem;
+}
+
+.bird-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+}
+
+.scientific-name {
+  font-style: italic;
+  color: #8adac3;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.description {
+  color: #d1d1d1;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.bird-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(64, 224, 208, 0.1);
+}
+
+.stat:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.stat-value {
+  color: #ffd166;
+  font-weight: 500;
+}
+
+.fun-fact {
+  background: rgba(26, 115, 232, 0.15);
+  border-left: 3px solid #00ffff;
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+  color: #e0e0e0;
+  font-style: italic;
+}
+
+.fun-fact strong {
+  color: #00ffff;
+  font-weight: 600;
+}
+
+.navigation-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #00ffff, #8adac3);
+  color: #0a1e2b;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.back-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+  
+  .intro-content h2 {
+    font-size: 2rem;
+  }
+  
+  .birds-grid {
+    padding: 1rem;
+  }
+  
+  .birds-grid .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .bird-card {
+    margin: 0 1rem;
+  }
+  
+  .bird-info {
+    padding: 1.2rem;
+  }
+  
+  .bird-info h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .intro-content {
+    padding: 0 1rem;
+  }
+  
+  .birds-grid .container {
+    gap: 1.5rem;
+  }
+}

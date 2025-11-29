@@ -1,0 +1,237 @@
+.tool-users {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 80px;
+  background: linear-gradient(180deg, #0a1e2b 0%, #0d1520 100%);
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    linear-gradient(to bottom, rgba(10, 30, 43, 0.7), rgba(10, 30, 43, 0.9)),
+    url('https://images.unsplash.com/photo-1546182999-70d4d9d6c8c6?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  background: linear-gradient(
+    135deg,
+    #00ffff,
+    #8adac3,
+    #ff6ec7,
+    #ffd166
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.intro-section {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.intro-section p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.7;
+  padding: 0 1.5rem;
+}
+
+.birds-grid {
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.bird-card {
+  background: linear-gradient(145deg, rgba(25, 55, 80, 0.7), rgba(15, 35, 60, 0.9));
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(100, 200, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.bird-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 200, 255, 0.2);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+}
+
+.bird-image-container {
+  height: 300px;
+  overflow: hidden;
+}
+
+.bird-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bird-card:hover .bird-image-container img {
+  transform: scale(1.05);
+}
+
+.bird-info {
+  padding: 2rem;
+}
+
+.bird-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.scientific-name {
+  font-style: italic;
+  color: #8adac3;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.description {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.bird-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  background: rgba(20, 40, 60, 0.6);
+  padding: 0.8rem;
+  border-radius: 8px;
+  border-left: 3px solid #00ffff;
+}
+
+.stat-label {
+  display: block;
+  color: #8adac3;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.stat-value {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.fun-fact {
+  background: rgba(30, 60, 90, 0.5);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border-left: 3px solid #ff6ec7;
+  color: #ffd166;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.fun-fact strong {
+  color: #ff6ec7;
+}
+
+.navigation-section {
+  padding: 2rem 0 4rem;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  border: 1px solid #00ffff;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.back-link:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .bird-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .bird-image-container {
+    height: auto;
+  }
+  
+  .bird-info {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+  
+  .bird-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro-section p {
+    font-size: 1rem;
+  }
+}

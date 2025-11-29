@@ -44,11 +44,11 @@ import AerialWonders from './components/AerialWonders'
 import AquaticLife from './components/AquaticLife'
 import ColorfulBeings from './components/ColorfulBeings'
 import AncientSpecies from './components/AncientSpecies'
-// New creature components
 import DesertSurvivors from './components/DesertSurvivors'
 import ArcticAdventurers from './components/ArcticAdventurers'
 import JungleGiants from './components/JungleGiants'
 import NightHunters from './components/NightHunters'
+import ColorfulDisplayers from './components/ColorfulDisplayers'
 import DeepSeaMysteries from './components/DeepSeaMysteries'
 import CamouflageMasters from './components/CamouflageMasters'
 // Creature Profiles
@@ -96,6 +96,48 @@ import RenewableEnergy from './components/RenewableEnergy'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
 import AboutUs from './components/AboutUs'
+// Birds World components
+import BirdsWorld from './components/BirdsWorld'
+import FlightMasters from './components/FlightMasters'
+import OceanNavigators from './components/OceanNavigators'
+import ForestSingers from './components/ForestSingers'
+import WetlandWonders from './components/WetlandWonders'
+import MountainSoarers from './components/MountainSoarers'
+import UrbanAdapters from './components/UrbanAdapters'
+import MigratoryMarvels from './components/MigratoryMarvels'
+import AquaticSpecialists from './components/AquaticSpecialists'
+import IslandEndemics from './components/IslandEndemics'
+import ToolUsers from './components/ToolUsers'
+import VocalVirtuosos from './components/VocalVirtuosos'
+import CooperativeBreeders from './components/CooperativeBreeders'
+import ExtremeSurvivors from './components/ExtremeSurvivors'
+import ShapeShifters from './components/ShapeShifters'
+import FlightlessWonders from './components/FlightlessWonders'
+import AquaticMasters from './components/AquaticMasters'
+import ForestArchitects from './components/ForestArchitects'
+import SkyDancers from './components/SkyDancers'
+import JungleAcrobats from './components/JungleAcrobats'
+import IceSculptors from './components/IceSculptors'
+import DesertEngineers from './components/DesertEngineers'
+import CoralGardeners from './components/CoralGardeners'
+import HighlandSentinels from './components/HighlandSentinels'
+import NightWhisperers from './components/NightWhisperers'
+import MudArchitects from './components/MudArchitects'
+import SeedGuardians from './components/SeedGuardians'
+import HoneyHunters from './components/HoneyHunters'
+import ShadowStalkers from './components/ShadowStalkers'
+import SoundSculptors from './components/SoundSculptors'
+// New Bird Categories
+import FeatheredArchitects from './components/FeatheredArchitects'
+import MastersOfCamouflage from './components/MastersOfCamouflage'
+import HighFlyers from './components/HighFlyers'
+import SeedSpecialists from './components/SeedSpecialists'
+import NightOwls from './components/NightOwls'
+import IceSpecialists from './components/IceSpecialists'
+import DesertDwellers from './components/DesertDwellers'
+import SocialFliers from './components/SocialFliers'
+import SpeedDemons from './components/SpeedDemons'
+import VocalMimics from './components/VocalMimics'
 
 function App() {
   return (
@@ -190,6 +232,53 @@ function App() {
             <Route path="/scientific-wonders/biotechnology" element={<Biotechnology />} />
             <Route path="/scientific-wonders/oceanography" element={<Oceanography />} />
             <Route path="/scientific-wonders/renewable-energy" element={<RenewableEnergy />} />
+            {/* Birds World */}
+            <Route path="/birds-world" element={<BirdsWorld />} />
+            <Route path="/birds-world/flight-masters" element={<FlightMasters />} />
+            <Route path="/birds-world/ocean-navigators" element={<OceanNavigators />} />
+            <Route path="/birds-world/forest-singers" element={<ForestSingers />} />
+            <Route path="/birds-world/desert-survivors" element={<DesertSurvivors />} />
+            <Route path="/birds-world/arctic-adventurers" element={<ArcticAdventurers />} />
+            <Route path="/birds-world/wetland-wonders" element={<WetlandWonders />} />
+            <Route path="/birds-world/mountain-soarers" element={<MountainSoarers />} />
+            <Route path="/birds-world/night-hunters" element={<NightHunters />} />
+            <Route path="/birds-world/colorful-displayers" element={<ColorfulDisplayers />} />
+            <Route path="/birds-world/ancient-species" element={<AncientSpecies />} />
+            <Route path="/birds-world/urban-adapters" element={<UrbanAdapters />} />
+            <Route path="/birds-world/migratory-marvels" element={<MigratoryMarvels />} />
+            <Route path="/birds-world/aquatic-specialists" element={<AquaticSpecialists />} />
+            <Route path="/birds-world/island-endemics" element={<IslandEndemics />} />
+            <Route path="/birds-world/tool-users" element={<ToolUsers />} />
+            <Route path="/birds-world/vocal-virtuosos" element={<VocalVirtuosos />} />
+            <Route path="/birds-world/cooperative-breeders" element={<CooperativeBreeders />} />
+            <Route path="/birds-world/extreme-survivors" element={<ExtremeSurvivors />} />
+            <Route path="/birds-world/shape-shifters" element={<ShapeShifters />} />
+            <Route path="/birds-world/flightless-wonders" element={<FlightlessWonders />} />
+            <Route path="/birds-world/aquatic-masters" element={<AquaticMasters />} />
+            <Route path="/birds-world/forest-architects" element={<ForestArchitects />} />
+            <Route path="/birds-world/sky-dancers" element={<SkyDancers />} />
+            <Route path="/birds-world/jungle-acrobats" element={<JungleAcrobats />} />
+            <Route path="/birds-world/ice-sculptors" element={<IceSculptors />} />
+            <Route path="/birds-world/desert-engineers" element={<DesertEngineers />} />
+            <Route path="/birds-world/coral-gardeners" element={<CoralGardeners />} />
+            <Route path="/birds-world/highland-sentinels" element={<HighlandSentinels />} />
+            <Route path="/birds-world/night-whisperers" element={<NightWhisperers />} />
+            <Route path="/birds-world/mud-architects" element={<MudArchitects />} />
+            <Route path="/birds-world/seed-guardians" element={<SeedGuardians />} />
+            <Route path="/birds-world/honey-hunters" element={<HoneyHunters />} />
+            <Route path="/birds-world/shadow-stalkers" element={<ShadowStalkers />} />
+            <Route path="/birds-world/sound-sculptors" element={<SoundSculptors />} />
+            {/* New Bird Categories */}
+            <Route path="/birds-world/feathered-architects" element={<FeatheredArchitects />} />
+            <Route path="/birds-world/masters-of-camouflage" element={<MastersOfCamouflage />} />
+            <Route path="/birds-world/high-flyers" element={<HighFlyers />} />
+            <Route path="/birds-world/seed-specialists" element={<SeedSpecialists />} />
+            <Route path="/birds-world/night-owls" element={<NightOwls />} />
+            <Route path="/birds-world/ice-specialists" element={<IceSpecialists />} />
+            <Route path="/birds-world/desert-dwellers" element={<DesertDwellers />} />
+            <Route path="/birds-world/social-fliers" element={<SocialFliers />} />
+            <Route path="/birds-world/speed-demons" element={<SpeedDemons />} />
+            <Route path="/birds-world/vocal-mimics" element={<VocalMimics />} />
             {/* AdSense Compliance */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />

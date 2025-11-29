@@ -1,0 +1,269 @@
+.speed-demons-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #2a0a2a 0%, #3a1a3a 50%, #4a2a4a 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.speed-demons-header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(45deg, #9b59b6 0%, #8e44ad 100%);
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.speed-demons-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  transform: rotate(30deg);
+  animation: speedFlash 3s infinite;
+}
+
+.speed-demons-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #d2b4de, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.speed-demons-header p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes speedFlash {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+}
+
+.speed-demons-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+}
+
+.speed-demons-intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #9b59b6;
+  text-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+}
+
+.speed-demons-intro p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #f0e6f6;
+}
+
+.speed-demons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.speed-demons-card {
+  background: linear-gradient(145deg, #2a0a2a 0%, #3a1a3a 100%);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+}
+
+.speed-demons-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(155, 89, 182, 0.6);
+}
+
+.card-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.speed-demons-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #d2b4de;
+}
+
+.scientific-name {
+  font-style: italic;
+  color: #cc88cc;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #f0e6f6;
+}
+
+.bird-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  background: rgba(155, 89, 182, 0.2);
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.stat-label {
+  display: block;
+  font-weight: bold;
+  color: #9b59b6;
+  margin-bottom: 0.3rem;
+}
+
+.stat-value {
+  color: #f0e6f6;
+}
+
+.fun-fact {
+  padding: 1rem;
+  background: rgba(210, 180, 222, 0.1);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-left: 3px solid #d2b4de;
+}
+
+.speed-demons-aerodynamics {
+  background: linear-gradient(45deg, #2a0a2a 0%, #3a1a3a 100%);
+  padding: 2.5rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(210, 180, 222, 0.3);
+}
+
+.speed-demons-aerodynamics h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #9b59b6;
+  text-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+}
+
+.speed-demons-aerodynamics p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  color: #f0e6f6;
+}
+
+.aerodynamics-insights {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.aerodynamics-insights h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #9b59b6;
+}
+
+.aerodynamics-insights ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.aerodynamics-insights li {
+  padding: 0.8rem 0 0.8rem 2rem;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f0e6f6;
+}
+
+.aerodynamics-insights li:before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  color: #d2b4de;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .speed-demons-container {
+    padding: 1rem;
+  }
+  
+  .speed-demons-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .speed-demons-header p {
+    font-size: 1.2rem;
+  }
+  
+  .speed-demons-intro h2 {
+    font-size: 2rem;
+  }
+  
+  .speed-demons-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bird-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .speed-demons-aerodynamics {
+    padding: 1.5rem;
+  }
+  
+  .speed-demons-aerodynamics h2 {
+    font-size: 1.8rem;
+  }
+}

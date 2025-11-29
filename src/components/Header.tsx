@@ -24,6 +24,7 @@ const Header = () => {
     { path: '/', label: 'Home' },
     { path: '/beautiful-places', label: 'Beautiful Places' },
     { path: '/creatures', label: 'Wonderful Creatures' },
+    { path: '/birds-world', label: 'Birds World' },
     { path: '/creature-profiles', label: 'Creature Profiles' },
     { path: '/blog', label: 'Stories' },
     { path: '/biodiversity-globe', label: 'Bio-Diversity Globe' },

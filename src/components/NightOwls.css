@@ -1,0 +1,269 @@
+.night-owls-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 50%, #2a2a3a 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.night-owls-header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(45deg, #2c3e50 0%, #34495e 100%);
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.night-owls-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  transform: rotate(30deg);
+  animation: nightGlide 8s infinite;
+}
+
+.night-owls-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #34495e, #7f8c8d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.night-owls-header p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes nightGlide {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+}
+
+.night-owls-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(44, 62, 80, 0.3);
+}
+
+.night-owls-intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #34495e;
+  text-shadow: 0 0 15px rgba(44, 62, 80, 0.5);
+}
+
+.night-owls-intro p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #ccddee;
+}
+
+.night-owls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.night-owls-card {
+  background: linear-gradient(145deg, #1a1a2a 0%, #2a2a3a 100%);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(44, 62, 80, 0.3);
+}
+
+.night-owls-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(44, 62, 80, 0.6);
+}
+
+.card-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.night-owls-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #7f8c8d;
+}
+
+.scientific-name {
+  font-style: italic;
+  color: #8888aa;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #ccddee;
+}
+
+.bird-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  background: rgba(44, 62, 80, 0.2);
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.stat-label {
+  display: block;
+  font-weight: bold;
+  color: #34495e;
+  margin-bottom: 0.3rem;
+}
+
+.stat-value {
+  color: #ccddee;
+}
+
+.fun-fact {
+  padding: 1rem;
+  background: rgba(127, 140, 141, 0.1);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-left: 3px solid #7f8c8d;
+}
+
+.night-owls-adaptations {
+  background: linear-gradient(45deg, #1a1a2a 0%, #2a2a3a 100%);
+  padding: 2.5rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(127, 140, 141, 0.3);
+}
+
+.night-owls-adaptations h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #34495e;
+  text-shadow: 0 0 15px rgba(44, 62, 80, 0.5);
+}
+
+.night-owls-adaptations p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  color: #ccddee;
+}
+
+.adaptation-details {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.adaptation-details h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #34495e;
+}
+
+.adaptation-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.adaptation-details li {
+  padding: 0.8rem 0 0.8rem 2rem;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccddee;
+}
+
+.adaptation-details li:before {
+  content: "🦉";
+  position: absolute;
+  left: 0;
+  color: #7f8c8d;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .night-owls-container {
+    padding: 1rem;
+  }
+  
+  .night-owls-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .night-owls-header p {
+    font-size: 1.2rem;
+  }
+  
+  .night-owls-intro h2 {
+    font-size: 2rem;
+  }
+  
+  .night-owls-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bird-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .night-owls-adaptations {
+    padding: 1.5rem;
+  }
+  
+  .night-owls-adaptations h2 {
+    font-size: 1.8rem;
+  }
+}

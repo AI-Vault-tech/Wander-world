@@ -1,0 +1,269 @@
+.feathered-architects-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 50%, #2a0a4a 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.feathered-architects-header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.feathered-architects-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  transform: rotate(30deg);
+  animation: shine 5s infinite;
+}
+
+.feathered-architects-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.feathered-architects-header p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+}
+
+.feathered-architects-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feathered-architects-intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #6a11cb;
+  text-shadow: 0 0 15px rgba(106, 17, 203, 0.5);
+}
+
+.feathered-architects-intro p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #e0e0ff;
+}
+
+.feathered-architects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.feathered-architect-card {
+  background: linear-gradient(145deg, #1a1a3a 0%, #2a2a5a 100%);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(106, 17, 203, 0.3);
+}
+
+.feathered-architect-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(106, 17, 203, 0.6);
+}
+
+.card-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.feathered-architect-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #ff7e5f;
+}
+
+.scientific-name {
+  font-style: italic;
+  color: #8888cc;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #e0e0ff;
+}
+
+.bird-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  background: rgba(106, 17, 203, 0.2);
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.stat-label {
+  display: block;
+  font-weight: bold;
+  color: #feb47b;
+  margin-bottom: 0.3rem;
+}
+
+.stat-value {
+  color: #e0e0ff;
+}
+
+.fun-fact {
+  padding: 1rem;
+  background: rgba(255, 126, 95, 0.1);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-left: 3px solid #ff7e5f;
+}
+
+.feathered-architects-conservation {
+  background: linear-gradient(45deg, #1a1a4a 0%, #2a0a4a 100%);
+  padding: 2.5rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 126, 95, 0.3);
+}
+
+.feathered-architects-conservation h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #feb47b;
+  text-shadow: 0 0 15px rgba(254, 180, 123, 0.5);
+}
+
+.feathered-architects-conservation p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  color: #e0e0ff;
+}
+
+.conservation-tips {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.conservation-tips h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #6a11cb;
+}
+
+.conservation-tips ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.conservation-tips li {
+  padding: 0.8rem 0 0.8rem 2rem;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e0e0ff;
+}
+
+.conservation-tips li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ff7e5f;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .feathered-architects-container {
+    padding: 1rem;
+  }
+  
+  .feathered-architects-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .feathered-architects-header p {
+    font-size: 1.2rem;
+  }
+  
+  .feathered-architects-intro h2 {
+    font-size: 2rem;
+  }
+  
+  .feathered-architects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bird-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .feathered-architects-conservation {
+    padding: 1.5rem;
+  }
+  
+  .feathered-architects-conservation h2 {
+    font-size: 1.8rem;
+  }
+}

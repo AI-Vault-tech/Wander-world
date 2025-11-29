@@ -18,6 +18,7 @@ const Footer = () => {
       { name: 'Deserts', path: '/deserts' },
       { name: 'Forests', path: '/forests' },
       { name: 'Islands', path: '/islands' },
+      { name: 'Birds World', path: '/birds-world' },
       { name: 'Blog', path: '/blog' },
     ],
     wonder: [
