@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wander-world-six.vercel.app/sitemap.xml

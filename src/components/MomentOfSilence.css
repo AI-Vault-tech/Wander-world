@@ -1,0 +1,20 @@
+.moment-of-silence {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, var(--deep-ocean), var(--forest-shadow));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.fractal-loader {
+  position: relative;
+}
+
+.fractal-loader svg {
+  filter: drop-shadow(0 0 20px var(--aurora-glow));
+}

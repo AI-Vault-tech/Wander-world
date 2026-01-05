@@ -1,0 +1,74 @@
+.compass-container {
+  position: fixed;
+  top: var(--space-md);
+  right: var(--space-md);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: flex-end;
+}
+
+.compass-rose {
+  position: relative;
+  cursor: pointer;
+  filter: drop-shadow(0 0 15px var(--aurora-glow));
+  transition: filter 0.3s ease;
+}
+
+.compass-rose:hover {
+  filter: drop-shadow(0 0 25px var(--aurora-glow));
+}
+
+.compass-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.compass-direction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--sky-light);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(10, 30, 43, 0.8);
+  border: 1px solid var(--aurora-glow);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.compass-direction:hover {
+  background: rgba(90, 138, 143, 0.3);
+  border-color: var(--mineral-teal);
+  transform: translateX(80px) scale(1.1) !important;
+}
+
+.serendipity-button button {
+  background: transparent;
+  border: 1px solid var(--aurora-glow);
+  color: var(--sky-light);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 30, 43, 0.6);
+}
+
+.serendipity-button button:hover {
+  border-color: var(--mineral-teal);
+  background: rgba(90, 138, 143, 0.2);
+  box-shadow: 0 0 20px var(--aurora-glow);
+}

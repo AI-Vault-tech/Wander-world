@@ -1,0 +1,49 @@
+.audio-manager {
+  position: fixed;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.audio-toggle {
+  background: rgba(10, 30, 43, 0.8);
+  border: 1px solid var(--aurora-glow);
+  color: var(--sky-light);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.audio-toggle:hover {
+  border-color: var(--mineral-teal);
+  background: rgba(90, 138, 143, 0.2);
+  transform: scale(1.1);
+}
+
+.audio-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+.audio-label {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--sand-beige);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.audio-manager:hover .audio-label {
+  opacity: 1;
+}

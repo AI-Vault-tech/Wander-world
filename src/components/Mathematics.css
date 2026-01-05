@@ -1,0 +1,295 @@
+.mathematics {
+  padding: 2rem 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  opacity: 0.95;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.hero-subtext {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.intro-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  color: #e6e6e6;
+}
+
+.intro-content h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.intro-content p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+
+.content-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.topic-card {
+  background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  color: #e6e6e6;
+}
+
+.topic-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #0f0c29, #302b63);
+}
+
+.topic-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.topic-emoji {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+}
+
+.topic-card h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.topic-description {
+  color: #cccccc;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.facts ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.facts li {
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  color: #bbbbbb;
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.facts li:last-child {
+  border-bottom: none;
+}
+
+.facts li::before {
+  content: "★";
+  color: #e94560;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.did-you-know {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 3rem 0;
+  background: linear-gradient(135deg, #16213e, #0f3460);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.did-you-know-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.did-you-know-content p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.navigation-section {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.back-link {
+  display: inline-block;
+  background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+  font-size: 1.1rem;
+}
+
+.back-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.6);
+  background: linear-gradient(135deg, #ff6b6b 0%, #e94560 100%);
+}
+
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.3rem;
+  }
+  
+  .content-section {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mathematics {
+    padding: 1rem;
+  }
+  
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  
+  .intro-section {
+    padding: 2rem 1rem;
+  }
+  
+  .intro-content h2 {
+    font-size: 2rem;
+  }
+  
+  .content-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .topic-card {
+    padding: 1.5rem;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .topic-emoji {
+    font-size: 3rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .did-you-know {
+    padding: 2rem 1rem;
+  }
+  
+  .did-you-know-content h2 {
+    font-size: 2rem;
+  }
+  
+  .did-you-know-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .topic-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .back-link {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
