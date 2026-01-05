@@ -7,8 +7,7 @@ import BeautifulPlaces from './components/BeautifulPlaces'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import NotFound from './components/NotFound'
-import './App.css'
-import AdSenseComponent from './components/AdSense';
+import './App.css';
 // Beautiful Places components
 import VastExpanses from './components/VastExpanses'
 import MinuteMarvels from './components/MinuteMarvels'
