@@ -93,7 +93,7 @@ npm run preview
 ## 📦 Project Structure
 
 ```
-beauty-of-the-world/
+wander-world/
 ├── src/
 │   ├── components/
 │   │   ├── Home.tsx

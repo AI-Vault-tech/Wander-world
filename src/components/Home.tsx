@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import AdSenseComponent from './AdSense';
 
 const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -510,6 +511,16 @@ const Home = () => {
             >
               {isVRMode ? "Exit VR Mode" : "Try VR Preview"}
             </button>
+          </div>
+          
+          {/* AdSense Ad */}
+          <div className="adsense-container" style={{ marginTop: '20px', textAlign: 'center' }}>
+            <AdSenseComponent 
+              client="pub-3458859130181523" 
+              slot="1234567890" 
+              style={{ display: 'block' }}
+              format="auto"
+            />
           </div>
         </div>
         

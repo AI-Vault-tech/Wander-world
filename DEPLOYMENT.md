@@ -10,7 +10,7 @@
 ### Step 2: Push to GitHub
 ```bash
 # Create a new repository on GitHub first, then:
-git remote add origin https://github.com/YOUR_USERNAME/beauty-of-the-world.git
+git remote add origin https://github.com/YOUR_USERNAME/wander-world.git
 git branch -M main
 git push -u origin main
 ```
@@ -50,7 +50,7 @@ vercel
 - Set up and deploy: Yes
 - Which scope: Select your account
 - Link to existing project: No
-- Project name: beauty-of-the-world
+- Project name: wander-world
 - Directory: ./
 - Override settings: No
 
@@ -62,7 +62,7 @@ vercel
 1. Push your code to GitHub
 2. Click the "Deploy to Vercel" button:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/beauty-of-the-world)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/wander-world)
 
 ---
 

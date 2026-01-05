@@ -9,7 +9,7 @@
 1. **Go to Google Search Console**: https://search.google.com/search-console
 2. **Add Property**: 
    - Click "Add Property"
-   - Enter: `https://beauty-of-the-world.vercel.app`
+   - Enter: `https://wander-world-six.vercel.app`
    - Click "Continue"
 
 3. **Choose Verification Method**:
@@ -50,7 +50,7 @@
 
 2. **Add to Your Project**:
    - Copy the downloaded file to: `public/` folder in your project
-   - The file should be at: `beauty-of-the-world/public/google1234567890abcdef.html`
+   - The file should be at: `wander-world/public/google1234567890abcdef.html`
 
 3. **Deploy**:
    ```bash
@@ -141,19 +141,19 @@ Optimize crawling with a robots.txt file
 ## 📝 Current URLs to Index
 
 Your website has these pages:
-- https://beauty-of-the-world.vercel.app/
-- https://beauty-of-the-world.vercel.app/tallest-places
-- https://beauty-of-the-world.vercel.app/deepest-places
-- https://beauty-of-the-world.vercel.app/most-beautiful
-- https://beauty-of-the-world.vercel.app/natural-wonders
-- https://beauty-of-the-world.vercel.app/futuristic-cities
-- https://beauty-of-the-world.vercel.app/blog
-- https://beauty-of-the-world.vercel.app/waterfalls
-- https://beauty-of-the-world.vercel.app/deserts
-- https://beauty-of-the-world.vercel.app/forests
-- https://beauty-of-the-world.vercel.app/islands
-- https://beauty-of-the-world.vercel.app/caves
-- https://beauty-of-the-world.vercel.app/glaciers
+- https://wander-world-six.vercel.app/
+- https://wander-world-six.vercel.app/tallest-places
+- https://wander-world-six.vercel.app/deepest-places
+- https://wander-world-six.vercel.app/most-beautiful
+- https://wander-world-six.vercel.app/natural-wonders
+- https://wander-world-six.vercel.app/futuristic-cities
+- https://wander-world-six.vercel.app/blog
+- https://wander-world-six.vercel.app/waterfalls
+- https://wander-world-six.vercel.app/deserts
+- https://wander-world-six.vercel.app/forests
+- https://wander-world-six.vercel.app/islands
+- https://wander-world-six.vercel.app/caves
+- https://wander-world-six.vercel.app/glaciers
 
 All 13 pages need to be indexed!
 
